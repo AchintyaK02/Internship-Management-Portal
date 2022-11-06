@@ -82,6 +82,7 @@ def midterm(request, id):
                        SM_id=id)
 
         sub.save()
+        Student.objects.filter(S_id=id).update(S_m=True)
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM = id)
         endTermForm = Endterm.objects.filter(SE = id)
@@ -119,6 +120,7 @@ def cmidterm(request, id):
                        C_SM_id=id)
 
         sub.save()
+        Student.objects.filter(S_id=id).update(S_cm=True)
         detai = Student.objects.get(S_id=id)
         midTermForm = Cmideterm.objects.filter(C_SM = id)
         endTermForm = CEndterm.objects.filter(C_SE = id)
@@ -163,6 +165,7 @@ def endterm(request,id):
                        SE_id=id)
 
         sub.save()
+        Student.objects.filter(S_id=id).update(S_e=True)
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM = id)
         endTermForm = Endterm.objects.filter(SE = id)
@@ -205,6 +208,7 @@ def cendterm(request,id):
                        C_SE_id=id)
 
         sub.save()
+        Student.objects.filter(S_id=id).update(S_ce=True)
         detai = Student.objects.get(S_id=id)
         midTermForm = Cmideterm.objects.filter(C_SM = id)
         endTermForm = CEndterm.objects.filter(C_SE = id)
@@ -218,3 +222,10 @@ def cendterm(request,id):
 
     student = Student.objects.get(S_id=id)
     return render(request, 'cendformdet.html', {'student': student})
+
+
+def goback(request,id):
+    teacher = CollegeSuper.objects.get(Co_id=id)
+    students = Student.objects.filter(SCO_id=id)
+    return render(request, 'home.html', {'stu': students , 'teacher' : teacher})
+

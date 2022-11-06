@@ -16,12 +16,13 @@
   </head>
   <body>
     {% block welcome %}
-    <input
+    <!-- <input
       type="button"
       value="Back To Homepage"
       onClick="javascript:history.go(-1);"
       class="btn btn-outline-dark"
-    />
+    /> -->
+    <a href="/home/tec/{{det.SCO_id}}">go back</a>
     {% endblock welcome %} {% block content %}
     <section style="background-color: #eee; font-family: 'Ubuntu'">
       <div class="container py-5">
@@ -79,7 +80,7 @@
                   <p class="mb-0">Interning At</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Google</p>
+                  <p class="text-muted mb-0">{{det.SC}}</p>
                 </div>
               </div>
               <hr />

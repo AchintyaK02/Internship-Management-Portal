@@ -41,6 +41,10 @@ class Student(models.Model):
     S_contact=models.CharField(max_length=10,null=True,blank=True)
     SCO=models.ForeignKey(CollegeSuper,on_delete=models.DO_NOTHING,null=True,blank=True)
     SC=models.ForeignKey(company,on_delete=models.DO_NOTHING,null=True,blank=True)
+    S_m=models.BooleanField(default=False)
+    S_e=models.BooleanField(default=False)
+    S_cm=models.BooleanField(default=False)
+    S_ce=models.BooleanField(default=False)
     
 
     def __str__(self):
