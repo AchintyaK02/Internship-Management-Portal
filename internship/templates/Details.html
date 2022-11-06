@@ -16,13 +16,9 @@
   </head>
   <body>
     {% block welcome %}
-    <!-- <input
-      type="button"
-      value="Back To Homepage"
-      onClick="javascript:history.go(-1);"
-      class="btn btn-outline-dark"
-    /> -->
-    <a href="/home/tec/{{det.SCO_id}}">go back</a>
+    <a class="btn btn-outline-dark" href="/home/tec/{{det.SCO_id}}"
+      >Back To Homepage</a
+    >
     {% endblock welcome %} {% block content %}
     <section style="background-color: #eee; font-family: 'Ubuntu'">
       <div class="container py-5">
