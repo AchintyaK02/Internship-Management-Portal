@@ -114,7 +114,6 @@
                     >Fill Form
                   </a>
                   {% endif %}
-                     
                 </div>
               </div>
               <hr />
@@ -135,42 +134,32 @@
                   {% endif %}
                 </div>
               </div>
-              
-              {% if det.S_m  and det.S_cm %}
-              <hr/>
+
+              {% if det.S_m and det.S_cm %}
+              <hr />
               <div class="row">
                 <div class="col-sm-3">
                   <p class="mb-0">Mid-Term Report</p>
                 </div>
                 <div class="col-sm-9">
-                  
-                  
                   <a href="/repo/{{det.S_id}}" type="submit" class="mb-0"
-                  >generate report
+                    >Generate Report
                   </a>
-                 
-                     
                 </div>
               </div>
 
               <hr />
-              {% endif %}
-              {% if det.S_e  and det.S_ce %}
+              {% endif %} {% if det.S_e and det.S_ce %}
               <div class="row">
                 <div class="col-sm-3">
                   <p class="mb-0">End-Term Report</p>
                 </div>
                 <div class="col-sm-9">
-                  
-                  
                   <a href="/e/repo/{{det.S_id}}" type="submit" class="mb-0"
-                  >generate report
+                    >Generate Report
                   </a>
-                  
-                     
                 </div>
               </div>
-              <hr/>
               {% endif %}
             </div>
           </div>
