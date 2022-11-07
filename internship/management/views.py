@@ -1,7 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+# from django.contrib.auth import login, logout, authenticate
 from .models import *
+from io import BytesIO
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+import os 
 
 # Create your views here.
 
@@ -228,4 +232,57 @@ def goback(request,id):
     teacher = CollegeSuper.objects.get(Co_id=id)
     students = Student.objects.filter(SCO_id=id)
     return render(request, 'home.html', {'stu': students , 'teacher' : teacher})
+
+def cgoback(request,id):
+    sup = company.objects.get(C_id=id)
+    students = Student.objects.filter(SC_id=id)
+    return render(request, 'compdash.html', {'supervisor': sup , 'stu' : students})
+
+def render_to_pdf(template_src,context_dict={}):
+    template=get_template(template_src)
+    html=template.render(context_dict)
+    result=BytesIO()
+    pdf=pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")),result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(),content_type='appliccation/pdf')
+    return None
+
+def mrepo(request,id,*args,**kwargs):
+    try:
+        tmid=mideterm.objects.filter(SM = id)
+        cmid = Cmideterm.objects.filter(C_SM = id)
+    except:
+        return HttpResponse("505 NOT FOUND")
+
+    for i in tmid:
+        a=i.domainandtech
+        b=i.profesethi
+        c=i.interpersonatl
+        d=i.presentation
+        e=i.communication
+        f=i.taskcompleted
+        g=i.questionans
+
+    for j in cmid:
+        h=j.C_domainandtech
+        m=j.C_profesethi  
+        n=j.C_interpersonatl
+        o=j.C_presentation 
+        p=j.C_communication
+        q=j.C_taskcompleted  
+        r=j.C_questionans
+
+    data={
+        'mark1':int(a)+int(h),
+        'mark2':int(b)+ int(m),
+        'mark3':int(c)+ int(n),
+        'mark4':int(d)+ int(o),
+        'mark5':int(e)+ int(p),
+        'mark6':int(f)+ int(q),
+        'mark7':int(g)+ int(r),
+    }  
+    pdf =render_to_pdf('report.html',data)
+    return HttpResponse(pdf,content_type='application/pdf')
+
+    
 

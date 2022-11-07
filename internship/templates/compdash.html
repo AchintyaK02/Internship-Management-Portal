@@ -40,8 +40,16 @@
             </td>
             <td>{{i.S_prn}}</td>
             <td>{{i.SCO}}</td>
-            <td id="mid-term-form-data">Filled</td>
-            <td id="end-term-form-data">Not Filled</td>
+            {% if i.S_cm %}
+                <td id="mid-term-form-data">Filled</td>
+            {% else %}
+                <td id="mid-term-form-data">Not Filled</td>
+            {% endif %}
+            {% if i.S_ce %}
+               <td id="end-term-form-data">Filled</td>
+            {% else %}
+               <td id="end-term-form-data">Not Filled</td>
+            {% endif %}
           </tr>
           {% endfor %}
         </tbody>
