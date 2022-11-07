@@ -13,6 +13,6 @@ urlpatterns = [
    path('midterm/C/<str:id>',views.cmidterm,name='cmid'),
    path('endterm/C/<str:id>',views.cendterm,name='cend'),
    path('repo/<str:id>',views.mrepo,name='mrep'),
-   # path('e/repo/<str:id>',views.erepo,name='erep')
+   path('e/repo/<str:id>',views.erepo,name='erep')
    
 ]
