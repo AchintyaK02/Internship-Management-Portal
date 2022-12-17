@@ -20,7 +20,7 @@
       </h5>
       <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
 
-      <form method="POST" action="/midterm/C/{{student.S_id}}">
+      <form action="/home/C/{{student.S_id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">
@@ -36,7 +36,7 @@
                 min="1"
                 max="30"
                 readonly
-                value="{{form.C_domainandtech}}"
+                value="{{form.domainandtech}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/30</label
@@ -55,32 +55,14 @@
                 min="1"
                 max="30"
                 readonly
-                value="{{form.C_presentation}}"
+                value="{{form.presentation}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/30</label
               >
             </div>
           </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Task Completed Till Date</label
-              >
-              <input
-                type="number"
-                class="col-3 col-lg-3 form-control"
-                name="mark3"
-                min="1"
-                max="20"
-                readonly
-                value="{{form.C_taskcompleted}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/20</label
-              >
-            </div>
-          </div>
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -89,55 +71,19 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark4"
+                name="mark3"
                 min="1"
                 max="10"
                 readonly
-                value="{{form.C_communication}}"
+                value="{{form.communication}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/10</label
               >
             </div>
           </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Interpersonal Skills</label
-              >
-              <input
-                type="number"
-                class="col-3 col-lg-3 form-control"
-                name="mark5"
-                min="1"
-                max="10"
-                readonly
-                value="{{form.C_interpersonatl}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Professional Ethics)</label
-              >
-              <input
-                type="number"
-                class="col-3 col-lg-3 form-control"
-                name="mark6"
-                min="1"
-                max="10"
-                readonly
-                value="{{form.C_profesethi}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
+          
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -146,11 +92,11 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark7"
+                name="mark4"
                 min="1"
                 max="10"
                 readonly
-                value="{{form.C_questionans}}"
+                value="{{form.questionans}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/10</label
@@ -163,7 +109,7 @@
             onClick="javascript:history.go(-1);"
             class="justify-content-centre mt-3 mb-5 btn btn-outline-dark col-4 col-lg-2"
           /> -->
-          <button onclick="history.back()">Go Back</button>
+          <button type="submit">Go Back</button>
         </div>
         <br />
       </form>

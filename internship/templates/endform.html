@@ -20,48 +20,11 @@
       </h5>
       <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
 
-      <form method="POST" action="/endterm/{{student.S_id}}">
+      <form  action="/home/{{student.S_id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Background & Topic / Task Selection</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark1"
-                min="1"
-                max="10"
-                value="{{form.background}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Scope & Objective</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark2"
-                min="1"
-                max="10"
-                value="{{form.scopeandobj}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
+         
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -71,7 +34,7 @@
                 type="number"
                 readonly
                 class="col-3 col-lg-3 form-control"
-                name="mark3"
+                name="mark1"
                 min="1"
                 max="20"
                 value="{{form.implemen}}"
@@ -90,7 +53,7 @@
                 type="number"
                 readonly
                 class="col-3 col-lg-3 form-control"
-                name="mark4"
+                name="mark2"
                 min="1"
                 max="10"
                 value="{{form.observa}}"
@@ -100,25 +63,7 @@
               >
             </div>
           </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Domain & Technical Knowledge (Key Learning)</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark5"
-                min="1"
-                max="30"
-                value="{{form.domain}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/30</label
-              >
-            </div>
-          </div>
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -128,7 +73,7 @@
                 type="number"
                 readonly
                 class="col-3 col-lg-3 form-control"
-                name="mark6"
+                name="mark3"
                 min="1"
                 max="30"
                 value="{{form.present}}"
@@ -147,7 +92,7 @@
                 type="number"
                 readonly
                 class="col-3 col-lg-3 form-control"
-                name="mark7"
+                name="mark4"
                 min="1"
                 max="10"
                 value="{{form.communic}}"
@@ -157,44 +102,7 @@
               >
             </div>
           </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Interpersonal Skills</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark8"
-                min="1"
-                max="10"
-                value="{{form.interper}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Professional Ethics</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark9"
-                min="1"
-                max="10"
-                value="{{form.profess}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -204,7 +112,7 @@
                 type="number"
                 readonly
                 class="col-3 col-lg-3 form-control"
-                name="mark10"
+                name="mark5"
                 min="1"
                 max="10"
                 value="{{form.qanda}}"
@@ -223,7 +131,7 @@
           /> -->
           <button
             class="justify-content-centre mt-3 mb-5 btn btn-outline-dark col-4 col-lg-2"
-            onclick="history.back()"
+           type="submit"
           >
             Go Back
           </button>

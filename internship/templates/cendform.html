@@ -20,48 +20,11 @@
       </h5>
       <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
 
-      <form method="POST" action="/endterm/C/{{student.S_id}}">
+      <form  action="/home/C/{{student.S_id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Background & Topic / Task Selection</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark1"
-                min="1"
-                max="10"
-                value="{{form.C_background}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Scope & Objective</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark2"
-                min="1"
-                max="10"
-                value="{{form.C_scopeandobj}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -74,7 +37,7 @@
                 name="mark3"
                 min="1"
                 max="20"
-                value="{{form.C_implemen}}"
+                value="{{form.implemen}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/20</label
@@ -93,32 +56,14 @@
                 name="mark4"
                 min="1"
                 max="10"
-                value="{{form.C_observa}}"
+                value="{{form.observa}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/10</label
               >
             </div>
           </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Domain & Technical Knowledge (Key Learning)</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark5"
-                min="1"
-                max="30"
-                value="{{form.C_domain}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/30</label
-              >
-            </div>
-          </div>
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -131,7 +76,7 @@
                 name="mark6"
                 min="1"
                 max="30"
-                value="{{form.C_present}}"
+                value="{{form.present}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/30</label
@@ -150,51 +95,14 @@
                 name="mark7"
                 min="1"
                 max="10"
-                value="{{form.C_communic}}"
+                value="{{form.communic}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/10</label
               >
             </div>
           </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Interpersonal Skills</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark8"
-                min="1"
-                max="10"
-                value="{{form.C_interper}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
-          <div class="form-outline mb-4">
-            <div class="row justify-content-center">
-              <label class="col-lg-4 col-form-label text-lg-right"
-                >Professional Ethics</label
-              >
-              <input
-                type="number"
-                readonly
-                class="col-3 col-lg-3 form-control"
-                name="mark9"
-                min="1"
-                max="10"
-                value="{{form.C_profess}}"
-              />
-              <label class="col-1 text-muted col-form-label text-left"
-                >/10</label
-              >
-            </div>
-          </div>
+          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -207,7 +115,7 @@
                 name="mark10"
                 min="1"
                 max="10"
-                value="{{form.C_qanda}}"
+                value="{{form.qanda}}"
               />
               <label class="col-1 text-muted col-form-label text-left"
                 >/10</label
@@ -220,7 +128,7 @@
             onClick="javascript:history.go(-1);"
             class="justify-content-centre mt-3 mb-5 btn btn-outline-dark col-4 col-lg-2"
           /> -->
-          <button onclick="history.back()">Go Back</button>
+          <button  type="submit">Go Back</button>
         </div>
         <br />
       </form>
