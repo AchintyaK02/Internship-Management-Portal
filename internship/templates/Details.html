@@ -135,6 +135,28 @@
                 </div>
               </div>
 
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Company Evaluation</p>
+                </div>
+                <div class="col-sm-9">
+                  {% if det.CE_C %}
+                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                    >NOT RECEIVED
+                  </a>
+                  {% elif Compform and det.CE_S %}
+                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                    >View Marks
+                  </a>
+                  {% else %}
+                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                    >Fill Form
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+              <hr />
+
               {% if det.S_m and det.S_cm %}
               <hr />
               <div class="row">

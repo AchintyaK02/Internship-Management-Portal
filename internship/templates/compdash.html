@@ -29,6 +29,7 @@
             <th scope="col">College Supervisor</th>
             <th scope="col">Mid-Term</th>
             <th scope="col">End-Term</th>
+            <th scope="col">Company Evaluation</th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +53,13 @@
             {% else %}
                <td id="end-term-form-data">Not Filled</td>
             {% endif %}
+
+            {% if i.CE_C %}
+               <td id="end-term-form-data">Filled</td>
+            {% else %}
+               <td id="end-term-form-data">Not Filled</td>
+            {% endif %}
+
           </tr>
           {% endfor %}
         </tbody>

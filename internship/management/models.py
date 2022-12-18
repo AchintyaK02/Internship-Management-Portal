@@ -61,6 +61,8 @@ class Student(models.Model):
     S_e=models.BooleanField(default=False)
     S_cm=models.BooleanField(default=False)
     S_ce=models.BooleanField(default=False)
+    CE_C=models.BooleanField(default=False)
+    CE_S=models.BooleanField(default=False)
     
 
     def __str__(self):
@@ -111,6 +113,9 @@ class comeval(models.Model):
  CE_total=models.IntegerField()
  CE=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
  CEF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING)
+ 
+
+
  class Meta:
         unique_together = (("CE", "CEF"),)
 
