@@ -15,9 +15,8 @@
     <big>Welcome, {{teacher.CO_name}}</big>
     {% endblock welcome %} {% block content %}
 
-    <div class="container-lg">
+    <div class="mt-4 rounded-3 card container">
       <h3 class="mt-4 mb-4">Students List</h3>
-
       <table class="table table-hover">
         <thead>
           <tr>
@@ -42,20 +41,17 @@
             <td>{{i.S_prn}}</td>
             <td>{{i.SC}}</td>
             {% if i.S_m %}
-                <td id="mid-term-form-data">Filled</td>
+            <td id="mid-term-form-data">Filled</td>
             {% else %}
-                <td id="mid-term-form-data">Not Filled</td>
-            {% endif %}
-            {% if i.S_e %}
-               <td id="end-term-form-data">Filled</td>
+            <td id="mid-term-form-data">Not Filled</td>
+            {% endif %} {% if i.S_e %}
+            <td id="end-term-form-data">Filled</td>
             {% else %}
-               <td id="end-term-form-data">Not Filled</td>
-            {% endif %}
-
-            {% if i.CE_S %}
-               <td id="end-term-form-data">Filled</td>
+            <td id="end-term-form-data">Not Filled</td>
+            {% endif %} {% if i.CE_S %}
+            <td id="end-term-form-data">Filled</td>
             {% else %}
-               <td id="end-term-form-data">Not Filled</td>
+            <td id="end-term-form-data">Not Filled</td>
             {% endif %}
           </tr>
           {% endfor %}

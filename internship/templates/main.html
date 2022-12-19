@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% block title %}
+    {% load static %} {% block title %}
     <title>Document</title>
     {% endblock title %}
     <meta charset="UTF-8" />
@@ -12,34 +12,37 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/3c13742512.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       * {
-        font-family: sans-serif;
+        font-family: "Roboto Slab", sans-serif;
       }
 
-      .navbar{
-        background-color: #1282c91a;
+      .navbar {
+        background-color: #79dae8;
+      }
+
+      body {
+        background-color: #dff6ff;
       }
     </style>
 
-    <!-- <script>
-      if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-      }
-    </script> -->
-
-    {% load static %}
-    <br hidden />
-    {% block CSS %}{% endblock CSS %}
-    <br hidden />
-    {% block Fonts %} {% endblock Fonts %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="#">
-          {% load static %}
           <img
             src="{% static 'images/mitwpu-logo.png' %}"
             alt=""
@@ -47,9 +50,37 @@
             height="120"
           />
         </a>
+
         {% block welcome %}
-        <big>Welcome,</big>
+        <big>Welcome, {{teacher.CO_name}}</big>
         {% endblock welcome %}
+        <div class="nav-item dropdown">
+          <a
+            class="nav-link text-dark dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-user mr-2"></i>My Profile
+          </a>
+          {% block dropdownContents %}
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"
+              ><i class="fa-solid fa-user mr-2"></i> View Profile</a
+            >
+            <a class="dropdown-item" href="#"
+              ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{%url 'login'%}"
+              ><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a
+            >
+          </div>
+          {% endblock dropdownContents %}
+        </div>
       </div>
     </nav>
 
@@ -57,5 +88,11 @@
     {% block content %} {% endblock content %}
     <br hidden />
     {% block JS %} {% endblock JS %}
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

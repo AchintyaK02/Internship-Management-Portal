@@ -20,7 +20,7 @@
       >Back To Homepage</a
     >
     {% endblock welcome %} {% block content %}
-    <section style="background-color: #eee; font-family: 'Ubuntu'">
+    <section>
       <div class="container py-5">
         <div class="container mb-3"><h3>Profile Information</h3></div>
 
@@ -135,6 +135,7 @@
                 </div>
               </div>
 
+              <hr />
               <div class="row">
                 <div class="col-sm-3">
                   <p class="mb-0">Company Evaluation</p>
@@ -155,7 +156,6 @@
                   {% endif %}
                 </div>
               </div>
-              <hr />
 
               {% if det.S_m and det.S_cm %}
               <hr />
