@@ -54,11 +54,15 @@ def home(request):
 
 
 def details(request, id):
-    detai = Student.objects.get(S_id=id)
+    student = Student.objects.get(S_id=id)
+    field_name = 'comper'
+    field_object = Student._meta.get_field(field_name)
+    field_value = field_object.value_from_object(student)
+    company_person = compper.objects.get(P_id = field_value)
     midTermForm = mideterm.objects.filter(SM=id, SF=1)
     endTermForm = Endterm.objects.filter(SE=id,SEF=1)
     Compform=comeval.objects.filter(CE=id,CEF=1)
-    return render(request, 'details.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : endTermForm,'Compform':Compform})
+    return render(request, 'details.html', {'com' : company_person , 'det': student , 'midTermForm' : midTermForm, 'endTermForm' : endTermForm,'Compform':Compform})
 
 def cdetails(request, id):
     detai = Student.objects.get(S_id=id)
@@ -224,7 +228,7 @@ def render_to_pdf(template_src,context_dict={}):
 def mrepo(request,id,*args,**kwargs):
     try:
         tmid=mideterm.objects.filter(SM = id)
-        cmid = Cmideterm.objects.filter(C_SM = id)
+        cmid = mideterm.objects.filter(C_SM = id)
     except:
         return HttpResponse("505 NOT FOUND")
     
@@ -265,7 +269,7 @@ def mrepo(request,id,*args,**kwargs):
 def erepo(request,id,*args,**kwargs):
     try:
         tmid=Endterm.objects.filter(SE = id)
-        cmid = CEndterm.objects.filter(C_SE = id)
+        cmid = Endterm.objects.filter(C_SE = id)
     except:
         return HttpResponse("505 NOT FOUND")
 
