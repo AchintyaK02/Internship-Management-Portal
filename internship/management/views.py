@@ -331,19 +331,19 @@ def Compform(request,id):
                        punctuality=mark5,
                        CE_total=int(mark1)+int(mark2)+int(mark3) +
                        int(mark4)+int(mark5),
-                       CE=id,CEF=2)
+                       CE_id=id,CEF_id=2)
 
         sub.save()
         Student.objects.filter(S_id=id).update(CE_C=True)
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM = id,SF=1)
         endTermForm = Endterm.objects.filter(SE = id,SEF=1)
-        Compform=comeval.object.filter(CE=id)
+        Compform=comeval.objects.filter(CE_id=id)
         return render(request, 'cdetails.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : endTermForm,'Compform':Compform})
 
     Comp = comeval.objects.filter(CE=id)
     if Comp.exists():
-        form = comeval.objects.get(CE = id)
+        form = comeval.objects.get(CE_id = id)
         student = Student.objects.get(S_id = id)
         return render(request, 'ccomform.html', {'form' : form, 'student': student})
 
@@ -372,22 +372,26 @@ def SCompform(request,id):
         #                CE=id,CEF=2)
 
         # sub.save()
-        Student.objects.filter(S_id=id).update(CE_S=True,CEF=1,problem=mark1,collect=mark2,Team=mark3,oralwrit=mark4,punctuality=mark5, CE_total=int(mark1)+int(mark2)+int(mark3) +int(mark4)+int(mark5))
+        
+         
+        comeval.objects.filter(CE_id=id).update(CEF_id=1,problem=mark1,collect=mark2,Team=mark3,oralwrit=mark4,punctuality=mark5, 
+        CE_total=int(mark1)+int(mark2)+int(mark3) +int(mark4)+int(mark5))
+        Student.objects.filter(S_id=id).update(CE_S=True)
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM = id,SF=1)
         endTermForm = Endterm.objects.filter(SE = id,SEF=1)
-        Compform=comeval.object.filter(CE=id,CEF=1)
+        Compform=comeval.objects.filter(CE_id=id,CEF_id=1)
         return render(request, 'details.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : endTermForm,'Compform':Compform})
 
-    Comp = comeval.objects.filter(CE=id,CEF=2)
-    Comp1=comeval.objects.filter(CE=id,CES=1)
+    Comp = comeval.objects.filter(CE=id,CEF_id=2)
+    Comp1=comeval.objects.filter(CE=id,CEF_id=1)
     if Comp.exists():
-        form = comeval.objects.get(CE = id)
+        form = comeval.objects.get(CE_id = id)
         student = Student.objects.get(S_id = id)
         return render(request, 'Scomformdet.html', {'form' : form, 'student': student})
 
     student = Student.objects.get(S_id=id)
-    return render(request, 'ccform.html', {'student': student,'Compform':Comp1})
+    return render(request, 'ccomform.html', {'student': student,'Compform':Comp1})
 
 
 

@@ -20,7 +20,7 @@
       </h5>
       <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
 
-      <form method="POST" action="Compform/C/{{student.S_id}}">
+      <form method="POST" action="/Compform/C/{{student.S_id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">
@@ -139,10 +139,14 @@
           </div>
 
           <!-- Submit button -->
+          <!-- <a type="submit" class="justify-content-centre mb-5 btn btn-outline-dark col-4 col-lg-2" href="/Compform/C/{{student.S_id}}">
+            Lock Marks
+          </a> -->
           <input
             class="justify-content-centre mb-5 btn btn-outline-dark col-4 col-lg-2"
             type="submit"
             value="Lock Marks"
+            
           />
         </div>
       </form>

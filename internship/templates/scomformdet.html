@@ -20,7 +20,7 @@
       </h5>
       <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
 
-      <form method="POST" action="Compform/C/{{student.S_id}}">
+      <form method="POST" action="/SCompform/{{student.S_id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">

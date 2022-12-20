@@ -141,16 +141,16 @@
                   <p class="mb-0">Company Evaluation</p>
                 </div>
                 <div class="col-sm-9">
-                  {% if det.CE_C %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                  {% if det.CE_C == False %}
+                  <a type="submit" class="mb-0"
                     >NOT RECEIVED
                   </a>
                   {% elif Compform and det.CE_S %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                  <a href="/SCompform/{{det.S_id}}" type="submit" class="mb-0"
                     >View Marks
                   </a>
                   {% else %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                  <a href="/SCompform/{{det.S_id}}" type="submit" class="mb-0"
                     >Fill Form
                   </a>
                   {% endif %}
