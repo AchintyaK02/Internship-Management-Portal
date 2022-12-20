@@ -138,6 +138,25 @@
               <hr />
               <div class="row">
                 <div class="col-sm-3">
+                  <p class="mb-0">Progress Evaluation</p>
+                </div>
+                <div class="col-sm-9">
+                  {% if ProgressForm %}
+                  <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
+                    >View Marks
+                  </a>
+                  {% else %}
+                  <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
+                    >Fill Form
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+
+              <hr />
+
+              <div class="row">
+                <div class="col-sm-3">
                   <p class="mb-0">Company Evaluation</p>
                 </div>
                 <div class="col-sm-9">

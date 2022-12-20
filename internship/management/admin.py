@@ -18,4 +18,5 @@ admin.site.register(company)
 admin.site.register(compper)
 admin.site.register(faccom)
 admin.site.register(comeval)
+admin.site.register(progresseval)
 

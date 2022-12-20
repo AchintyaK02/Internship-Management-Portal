@@ -15,6 +15,7 @@ urlpatterns = [
    path('repo/<str:id>',views.mrepo,name='mrep'),
    path('e/repo/<str:id>',views.erepo,name='erep'),
    path('Compform/C/<str:id>',views.Compform,name='cform'),
-   path('SCompform/<str:id>',views.SCompform,name='scform')
-   
+   path('SCompform/<str:id>',views.SCompform,name='scform'),
+   path('Sprogeval/<str:id>',views.Sprogresseval,name='spro'),
+   path('Cprogeval/C/<str:id>',views.Cprogresseval,name='cpro')
 ]

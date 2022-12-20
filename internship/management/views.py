@@ -58,14 +58,18 @@ def details(request, id):
     midTermForm = mideterm.objects.filter(SM=id, SF=1)
     endTermForm = Endterm.objects.filter(SE=id,SEF=1)
     Compform=comeval.objects.filter(CE=id,CEF=1)
-    return render(request, 'details.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : endTermForm,'Compform':Compform})
+    ProgressForm = progresseval.objects.filter(PE_id=id,PEF_id=1)
+    return render(request, 'details.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : 
+    endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
 def cdetails(request, id):
     detai = Student.objects.get(S_id=id)
     midTermForm = mideterm.objects.filter(SM = id,SF=2)
     endTermForm = Endterm.objects.filter(SE =id,SEF=2)
     Compform=comeval.objects.filter(CE=id)
-    return render(request, 'cdetails.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : endTermForm,'Compform':Compform})
+    ProgressForm = progresseval.objects.filter(PE_id=id,PEF_id=2)
+    return render(request, 'cdetails.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : 
+    endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
 def midterm(request, id):
     if request.method == 'POST':
@@ -394,7 +398,82 @@ def SCompform(request,id):
     return render(request, 'ccomform.html', {'student': student,'Compform':Comp1})
 
 
+def Sprogresseval(request,id):
+    if request.method == 'POST':
+        mark1 = request.POST.get('mark1')
+        mark2 = request.POST.get('mark2')
+        mark3 = request.POST.get('mark3')
+        mark4 = request.POST.get('mark4')
+       
+       
+        sub = progresseval(
+                       
+                       Taskperfo=mark1,
+                       workcomplete=mark2,
+                       Weekreport=mark3,
+                       repowrit=mark4,
+                       
+                       PE_total=int(mark1)+int(mark2)+int(mark3) +
+                       int(mark4),
+                       PE_id=id,PEF_id=1)
 
+        sub.save()
+        Student.objects.filter(S_id=id).update(PE_S=True)
+        detai = Student.objects.get(S_id=id)
+        midTermForm = mideterm.objects.filter(SM = id,SF=1)
+        endTermForm = Endterm.objects.filter(SE = id,SEF=1)
+        Compform=comeval.objects.filter(CE_id=id)
+        Progress=progresseval.objects.filter(PE_id=id,PEF_id=1)
+        return render(request, 'cdetails.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : 
+        endTermForm,'Compform':Compform,'Progresseval':Progress})
+
+    Comp = progresseval.objects.filter(PE_id=id,PEF_id=1)
+    if Comp.exists():
+        form = progresseval.objects.get(PE_id = id,PEF_id=1)
+        student = Student.objects.get(S_id = id)
+        return render(request, 'progresseval.html', {'form' : form, 'student': student})
+
+    student = Student.objects.get(S_id=id)
+    return render(request, 'progevaldet.html', {'student': student})
+
+
+def Cprogresseval(request,id):
+    if request.method == 'POST':
+        mark1 = request.POST.get('mark1')
+        mark2 = request.POST.get('mark2')
+        mark3 = request.POST.get('mark3')
+        mark4 = request.POST.get('mark4')
+       
+       
+        sub = progresseval(
+                       
+                       Taskperfo=mark1,
+                       workcomplete=mark2,
+                       Weekreport=mark3,
+                       repowrit=mark4,
+                       
+                       PE_total=int(mark1)+int(mark2)+int(mark3) +
+                       int(mark4),
+                       PE_id=id,PEF_id=1)
+
+        sub.save()
+        Student.objects.filter(S_id=id).update(PE_C=True)
+        detai = Student.objects.get(S_id=id)
+        midTermForm = mideterm.objects.filter(SM = id,SF=2)
+        endTermForm = Endterm.objects.filter(SE = id,SEF=2)
+        Compform=comeval.objects.filter(CE_id=id)
+        Progress=progresseval.objects.filter(PE_id=id,PEF_id=2)
+        return render(request, 'cdetails.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : 
+        endTermForm,'Compform':Compform,'Progresseval':Progress})
+
+    Comp = progresseval.objects.filter(PE_id=id,PEF_id=2)
+    if Comp.exists():
+        form = progresseval.objects.get(PE_id = id,PEF_id=2)
+        student = Student.objects.get(S_id = id)
+        return render(request, 'progresseval.html', {'form' : form, 'student': student})
+
+    student = Student.objects.get(S_id=id)
+    return render(request, 'progevaldet.html', {'student': student})
 
 
 
