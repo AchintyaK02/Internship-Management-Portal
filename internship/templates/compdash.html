@@ -8,69 +8,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block title %}
     <title>Students List</title>
-    {% endblock title %}
+    {% endblock title %} {% block CSS %} {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    {% endblock CSS %}
   </head>
   <body>
-  
     {% block welcome %}
-    <big>Welcome, {{supervisor}}</big
-    {% endblock welcome %} {% block content %}
- 
-
-    <div class="container-lg">
-      <h3 class="mt-3 mb-3">Students List</h3>
-
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">PRN</th>
-            <th scope="col">College Supervisor</th>
-            <th scope="col">Mid-Term</th>
-            <th scope="col">End-Term</th>
-            <th scope="col">Company Evaluation</th>
-            <th scope="col">Progress Evaluation</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for i in stu %}
-          <tr>
-            <th scope="row">{{i.S_id}}</th>
-            <td>
-              <a href="/home/C/{{i.S_id}}"
-                >{{i.S_fname}} {{i.S_mname}} {{i.S_lname}}
-              </a>
-            </td>
-            <td>{{i.S_prn}}</td>
-            <td>{{i.SCO}}</td>
-            {% if i.S_cm %}
-                <td id="mid-term-form-data">Filled</td>
-            {% else %}
-                <td id="mid-term-form-data">Not Filled</td>
-            {% endif %}
-            {% if i.S_ce %}
-               <td id="end-term-form-data">Filled</td>
-            {% else %}
-               <td id="end-term-form-data">Not Filled</td>
-            {% endif %}
-
-            {% if i.CE_C %}
-               <td id="end-term-form-data">Filled</td>
-            {% else %}
-               <td id="end-term-form-data">Not Filled</td>
-            {% endif %}
-
-            {% if i.PE_C %}
-               <td id="end-term-form-data">Filled</td>
-            {% else %}
-               <td id="end-term-form-data">Not Filled</td>
-            {% endif %}
-
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    <big>Welcome, {{supervisor}}</big>
+    {% endblock welcome %} {% block dropdownContents %}
+    <a class="dropdown-item" href="/cvpro/1"
+      ><i class="fa-solid fa-user mr-2"></i> View Profile</a
+    >
+    <a class="dropdown-item" href="#"
+      ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
+    >
+    {% endblock dropdownContents %} {% block content %}
+    <div class="container">
+      <h3 class="mt-3 text-center">Evaluation Status</h3>
+      <div class="row d-flex justify-content-center text-center">
+        <div class="col mx-3 my-4 card txt-clr-quaternary bg-clr-secondary">
+          <div class="mt-2 card-header">Mid-Term Evaluation</div>
+          <div class="card-body">
+            <div class="pie animate" style="--p: 40; --c: white">40%</div>
+          </div>
+        </div>
+        <div class="col-lg-4 mx-3 my-4 card">
+          <div class="mt-2 card-header txt-clr-secondary">
+            Company Evaluation
+          </div>
+          <div class="card-body">
+            <div
+              class="pie animate txt-clr-secondary"
+              style="--p: 77; --c: var(--clr-secondary)"
+            >
+              77%
+            </div>
+          </div>
+        </div>
+        <div class="col mx-3 my-4 card txt-clr-quaternary bg-clr-secondary">
+          <div class="mt-2 card-header">End-Term Evaluation</div>
+          <div class="card-body">
+            <div class="pie animate" style="--p: 65; --c: white">65%</div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 rounded card container mb-4">
+        <h3 class="mt-4 mb-4">Students List</h3>
+        <table class="table table-hover">
+          <thead class="txt-clr-primary">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">PRN</th>
+              <th scope="col">Company Supervisor</th>
+              <th scope="col">Mid-Term</th>
+              <th scope="col">End-Term</th>
+              <th scope="col">Company Evaluation</th>
+            </tr>
+          </thead>
+          <tbody class="txt-clr-secondary">
+            {% for i in stu %}
+            <tr>
+              <th scope="row">{{i.S_id}}</th>
+              <td>
+                <a href="/home/C/{{i.S_id}}" class="text-decoration-none"
+                  >{{i.S_fname}} {{i.S_mname}} {{i.S_lname}}
+                </a>
+              </td>
+              <td>{{i.S_prn}}</td>
+              <td>{{i.SC}}</td>
+              {% if i.S_m %}
+              <td id="mid-term-form-data">Filled</td>
+              {% else %}
+              <td id="mid-term-form-data">Not Filled</td>
+              {% endif %} {% if i.S_e %}
+              <td id="end-term-form-data">Filled</td>
+              {% else %}
+              <td id="end-term-form-data">Not Filled</td>
+              {% endif %} {% if i.CE_S %}
+              <td id="end-term-form-data">Filled</td>
+              {% else %}
+              <td id="end-term-form-data">Not Filled</td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
     {% endblock content %}
   </body>

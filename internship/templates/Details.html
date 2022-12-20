@@ -17,7 +17,7 @@
   <body>
     {% block welcome %} {% endblock welcome %} {% block dropdownContents %}
     <a class="dropdown-item" href="/home/tec/{{det.SCO_id}}"
-      ><i class="fa-solid fa-house mr-1"></i> Back To Homepage</a
+      ><i class="fa-solid fa-house mr-1"></i> Homepage</a
     >
     <a class="dropdown-item" href="#"
       ><i class="fa-solid fa-user mr-2"></i> View Profile</a
@@ -25,11 +25,12 @@
     <a class="dropdown-item" href="#"
       ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
     >
+    {% endblock dropdownContents %} 
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{%url 'login'%}"
       ><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a
     >
-    {% endblock dropdownContents %} {% block content %}
+    {% block content %}
     <section>
       <div class="container py-5">
         <h3 class="text-center mb-3">Student Information</h3>
@@ -219,10 +220,10 @@
 
                 <hr />
                 <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                   <p class="mb-0">Progress Evaluation</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                   {% if ProgressForm %}
                   <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
                     >View Marks
@@ -243,9 +244,9 @@
                   </div>
                   <div class="col-sm-6">
                     {% if det.CE_C == False %}
-                    <a type="submit" class="mb-0"
-                      >NOT RECEIVED
-                    </a>
+                    <p class="mb-0"
+                      >Not Recieved
+                    </p>
                     {% elif Compform and det.CE_S %}
                     <a href="/SCompform/{{det.S_id}}" type="submit" class="mb-0"
                       >View Marks

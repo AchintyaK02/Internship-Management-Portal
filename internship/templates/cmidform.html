@@ -62,7 +62,7 @@
               >
             </div>
           </div>
-          
+
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -82,8 +82,7 @@
               >
             </div>
           </div>
-          
-          
+
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -103,12 +102,23 @@
               >
             </div>
           </div>
-          <!-- <input
-            type="button"
-            value="Go Back"
-            onClick="javascript:history.go(-1);"
-            class="justify-content-centre mt-3 mb-5 btn btn-outline-dark col-4 col-lg-2"
-          /> -->
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right">Total</label>
+              <input
+                type="number"
+                readonly
+                class="col-3 col-lg-3 form-control"
+                name="mark5"
+                min="1"
+                max="10"
+                value="{{form.total}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/80</label
+              >
+            </div>
+          </div>
           <button type="submit">Go Back</button>
         </div>
         <br />

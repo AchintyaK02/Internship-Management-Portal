@@ -20,11 +20,10 @@
       </h5>
       <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
 
-      <form  action="/home/C/{{student.S_id}}">
+      <form action="/home/C/{{student.S_id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">
-          
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -63,7 +62,7 @@
               >
             </div>
           </div>
-          
+
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -102,7 +101,7 @@
               >
             </div>
           </div>
-          
+
           <div class="form-outline mb-4">
             <div class="row justify-content-center">
               <label class="col-lg-4 col-form-label text-lg-right"
@@ -122,13 +121,24 @@
               >
             </div>
           </div>
-          <!-- <input
-            type="button"
-            value="Go Back"
-            onClick="javascript:history.go(-1);"
-            class="justify-content-centre mt-3 mb-5 btn btn-outline-dark col-4 col-lg-2"
-          /> -->
-          <button  type="submit">Go Back</button>
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right">Total</label>
+              <input
+                type="number"
+                readonly
+                class="col-3 col-lg-3 form-control"
+                name="mark5"
+                min="1"
+                max="10"
+                value="{{form.E_total}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/80</label
+              >
+            </div>
+          </div>
+          <button type="submit">Go Back</button>
         </div>
         <br />
       </form>

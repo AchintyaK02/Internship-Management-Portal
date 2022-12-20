@@ -16,6 +16,8 @@ class CollegeSuper(models.Model):
     CO_email=models.CharField(max_length=50)
     CO_pno=models.CharField(max_length=10)
     CO_prn=models.CharField(max_length=15)
+    CO_gender=models.CharField(max_length=1)
+    
 
     def __str__(self):
         return self.CO_name
@@ -23,7 +25,6 @@ class CollegeSuper(models.Model):
 class company(models.Model):
     C_id=models.AutoField(primary_key=True)   
     C_name=models.CharField(max_length=50)
-    # C_email=models.CharField(max_length=100,blank=True,null=True)
 
     def __str__(self):
         return self.C_name

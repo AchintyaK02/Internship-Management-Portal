@@ -17,5 +17,10 @@ urlpatterns = [
    path('Compform/C/<str:id>',views.Compform,name='cform'),
    path('SCompform/<str:id>',views.SCompform,name='scform'),
    path('Sprogeval/<str:id>',views.Sprogresseval,name='spro'),
-   path('Cprogeval/C/<str:id>',views.Cprogresseval,name='cpro')
+   path('Cprogeval/C/<str:id>',views.Cprogresseval,name='cpro'),
+   path('svpro/<str:id>',views.Svpro,name='Sview'),
+   # path('sepro/<str:id>',views.Sepro,name='Sedit'),
+   path('cvpro/<str:id>',views.cvpro,name='cview'),
+   # path('cepro/<str:id>',views.cepro,name='cedit'),
+
 ]

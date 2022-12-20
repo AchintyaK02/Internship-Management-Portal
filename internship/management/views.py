@@ -63,16 +63,20 @@ def details(request, id):
     endTermForm = Endterm.objects.filter(SE=id,SEF=1)
     Compform=comeval.objects.filter(CE=id,CEF=1)
     ProgressForm = progresseval.objects.filter(PE_id=id,PEF_id=1)
-    return render(request, 'details.html', {'det': student , 'midTermForm' : midTermForm, 'endTermForm' : 
+    return render(request, 'details.html', {'com':company_person ,'det': student , 'midTermForm' : midTermForm, 'endTermForm' : 
     endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
 def cdetails(request, id):
-    detai = Student.objects.get(S_id=id)
+    student = Student.objects.get(S_id=id)
+    field_name = 'SCO'
+    field_object = Student._meta.get_field(field_name)
+    field_value = field_object.value_from_object(student)
+    college_supervisor = CollegeSuper.objects.get(Co_id = field_value)
     midTermForm = mideterm.objects.filter(SM = id,SF=2)
     endTermForm = Endterm.objects.filter(SE =id,SEF=2)
     Compform=comeval.objects.filter(CE=id)
     ProgressForm = progresseval.objects.filter(PE_id=id,PEF_id=2)
-    return render(request, 'cdetails.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : 
+    return render(request, 'cdetails.html', { 'com' : college_supervisor , 'det': student , 'midTermForm' : midTermForm, 'endTermForm' : 
     endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
 def midterm(request, id):
@@ -474,14 +478,22 @@ def Cprogresseval(request,id):
     if Comp.exists():
         form = progresseval.objects.get(PE_id = id,PEF_id=2)
         student = Student.objects.get(S_id = id)
-        return render(request, 'progresseval.html', {'form' : form, 'student': student})
+        return render(request, 'cprogresseval.html', {'form' : form, 'student': student})
 
     student = Student.objects.get(S_id=id)
-    return render(request, 'progevaldet.html', {'student': student})
+    return render(request, 'cprogevaldet.html', {'student': student})
 
 
+def Svpro(request,id):
+    collegesu=CollegeSuper.objects.get(Co_id=id)
+    return render(request,'collegesuper.html',{'collegesuper':collegesu})
 
-
-
+def cvpro(request,id):
+    comper=compper.objects.get(P_id=id)
+    field_name = 'PC'
+    field_object = compper._meta.get_field(field_name)
+    field_value = field_object.value_from_object(comper)
+    company_name = company.objects.get(C_id = field_value)
+    return render(request,'companysuper.html',{'compper':comper , 'company' : company_name})
     
 
