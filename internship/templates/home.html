@@ -8,55 +8,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block title %}
     <title>Students List</title>
-    {% endblock title %}
+    {% endblock title %} {% block CSS %} {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    {% endblock CSS %}
   </head>
   <body>
     {% block welcome %}
     <big>Welcome, {{teacher.CO_name}}</big>
     {% endblock welcome %} {% block content %}
-
-    <div class="mt-4 rounded-3 card container">
-      <h3 class="mt-4 mb-4">Students List</h3>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">PRN</th>
-            <th scope="col">Company Supervisor</th>
-            <th scope="col">Mid-Term</th>
-            <th scope="col">End-Term</th>
-            <th scope="col">Company Evaluation</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for i in stu %}
-          <tr>
-            <th scope="row">{{i.S_id}}</th>
-            <td>
-              <a href="/home/{{i.S_id}}"
-                >{{i.S_fname}} {{i.S_mname}} {{i.S_lname}}
-              </a>
-            </td>
-            <td>{{i.S_prn}}</td>
-            <td>{{i.SC}}</td>
-            {% if i.S_m %}
-            <td id="mid-term-form-data">Filled</td>
-            {% else %}
-            <td id="mid-term-form-data">Not Filled</td>
-            {% endif %} {% if i.S_e %}
-            <td id="end-term-form-data">Filled</td>
-            {% else %}
-            <td id="end-term-form-data">Not Filled</td>
-            {% endif %} {% if i.CE_S %}
-            <td id="end-term-form-data">Filled</td>
-            {% else %}
-            <td id="end-term-form-data">Not Filled</td>
-            {% endif %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    <div class="container">
+      <div class="row d-flex justify-content-center text-center">
+        <div class="col mx-3 my-4 card txt-clr-quaternary bg-clr-secondary">
+          <div class="mt-2 card-header">Mid-Term Evaluation</div>
+          <div class="card-body">
+            <div class="pie animate" style="--p: 40; --c: white">40%</div>
+          </div>
+        </div>
+        <div class="col-lg-4 mx-3 my-4 card">
+          <div class="mt-2 card-header txt-clr-secondary">
+            Company Evaluation
+          </div>
+          <div class="card-body">
+            <div
+              class="pie animate txt-clr-secondary"
+              style="--p: 77; --c: var(--clr-secondary)"
+            >
+              77%
+            </div>
+          </div>
+        </div>
+        <div class="col mx-3 my-4 card txt-clr-quaternary bg-clr-secondary">
+          <div class="mt-2 card-header">End-Term Evaluation</div>
+          <div class="card-body">
+            <div class="pie animate" style="--p: 65; --c: white">65%</div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 rounded card container mb-4">
+        <h3 class="mt-4 mb-4">Students List</h3>
+        <table class="table table-hover">
+          <thead class="txt-clr-primary">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">PRN</th>
+              <th scope="col">Company Supervisor</th>
+              <th scope="col">Mid-Term</th>
+              <th scope="col">End-Term</th>
+              <th scope="col">Company Evaluation</th>
+            </tr>
+          </thead>
+          <tbody class="txt-clr-secondary">
+            {% for i in stu %}
+            <tr>
+              <th scope="row">{{i.S_id}}</th>
+              <td>
+                <a href="/home/{{i.S_id}}" class="text-decoration-none"
+                  >{{i.S_fname}} {{i.S_mname}} {{i.S_lname}}
+                </a>
+              </td>
+              <td>{{i.S_prn}}</td>
+              <td>{{i.SC}}</td>
+              {% if i.S_m %}
+              <td id="mid-term-form-data">Filled</td>
+              {% else %}
+              <td id="mid-term-form-data">Not Filled</td>
+              {% endif %} {% if i.S_e %}
+              <td id="end-term-form-data">Filled</td>
+              {% else %}
+              <td id="end-term-form-data">Not Filled</td>
+              {% endif %} {% if i.CE_S %}
+              <td id="end-term-form-data">Filled</td>
+              {% else %}
+              <td id="end-term-form-data">Not Filled</td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
     {% endblock content %}
   </body>

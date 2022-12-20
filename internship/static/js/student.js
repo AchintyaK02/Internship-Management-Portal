@@ -20,4 +20,23 @@ document
       ".webp"
   );
 
+var supgender = document.getElementById("supervisor-gender").innerText;
+
+if (supgender === "M") {
+  suprandom = males[Math.floor(Math.random() * males.length)];
+} else if (supgender === "F") {
+  suprandom = females[Math.floor(Math.random() * females.length)];
+} else {
+  suprandom = 3;
+}
+
+document
+  .getElementById("supervisor-avatar")
+  .setAttribute(
+    "src",
+    "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava" +
+      suprandom +
+      ".webp"
+  );
+
 // Figure out how to change the avatar url to static directory

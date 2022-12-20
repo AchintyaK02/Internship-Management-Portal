@@ -15,175 +15,265 @@
     />
   </head>
   <body>
-    {% block welcome %}
-    <a class="btn btn-outline-dark" href="/home/tec/{{det.SCO_id}}"
-      >Back To Homepage</a
+    {% block welcome %} {% endblock welcome %} {% block dropdownContents %}
+    <a class="dropdown-item" href="/home/tec/{{det.SCO_id}}"
+      ><i class="fa-solid fa-house mr-1"></i> Back To Homepage</a
     >
-    {% endblock welcome %} {% block content %}
+    <a class="dropdown-item" href="#"
+      ><i class="fa-solid fa-user mr-2"></i> View Profile</a
+    >
+    <a class="dropdown-item" href="#"
+      ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
+    >
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{%url 'login'%}"
+      ><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a
+    >
+    {% endblock dropdownContents %} {% block content %}
     <section>
       <div class="container py-5">
-        <div class="container mb-3"><h3>Profile Information</h3></div>
-
-        <div class="col-lg-12">
-          <div class="card mb-4 col-lg-12">
-            <div class="card-body text-center">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                alt="avatar"
-                class="rounded-circle img-fluid"
-                id="student-avatar"
-                style="width: 150px"
-              />
-              <h5 class="my-3">{{det.S_fname}} {{det.S_lname}}</h5>
-              <p class="text-muted mb-4">{{det.S_prn}}</p>
+        <h3 class="text-center mb-3">Student Information</h3>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4 col-lg-12">
+              <div class="card-body text-center">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  alt="avatar"
+                  class="rounded-circle img-fluid"
+                  id="student-avatar"
+                  style="width: 150px"
+                />
+                <h5 class="my-3">{{det.S_fname}} {{det.S_lname}}</h5>
+                <p class="text-muted mb-4">{{det.S_prn}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Full Name</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      {{det.S_fname}} {{det.S_mname}} {{det.S_lname}}
+                    </p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{det.S_email}}</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{det.S_contact}}</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Interning At</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{det.SC}}</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Address</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{det.S_address}}</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Gender</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p id="student-gender" class="text-muted mb-0">
+                      {{det.S_geneder}}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-12">
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Full Name</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">
-                    {{det.S_fname}} {{det.S_mname}} {{det.S_lname}}
-                  </p>
-                </div>
+        <h3 class="text-center my-3">Company Supervisor Information</h3>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4 col-lg-12">
+              <div class="card-body text-center">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  alt="avatar"
+                  class="rounded-circle img-fluid"
+                  id="supervisor-avatar"
+                  style="width: 150px"
+                />
+                <h5 class="my-3">{{com.P_fname}} {{com.P_lname}}</h5>
+                <p class="text-muted mb-4">{{com.P_email}}</p>
               </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Email</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{det.S_email}}</p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Phone</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{det.S_contact}}</p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Interning At</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{det.SC}}</p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{det.S_address}}</p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Gender</p>
-                </div>
-                <div class="col-sm-9">
-                  <p id="student-gender" class="text-muted mb-0">
-                    {{det.S_geneder}}
-                  </p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Mid-Term Evaluation</p>
-                </div>
-                <div class="col-sm-9">
-                  {% if midTermForm %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >View Marks
-                  </a>
-                  {% else %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >Fill Form
-                  </a>
-                  {% endif %}
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">End-Term Evaluation</p>
-                </div>
-                <div class="col-sm-9">
-                  {% if endTermForm %}
-                  <a href="/endterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >View Marks
-                  </a>
-                  {% else %}
-                  <a href="/endterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >Fill Form
-                  </a>
-                  {% endif %}
-                </div>
-              </div>
-
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Company Evaluation</p>
-                </div>
-                <div class="col-sm-9">
-                  {% if det.CE_C %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >NOT RECEIVED
-                  </a>
-                  {% elif Compform and det.CE_S %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >View Marks
-                  </a>
-                  {% else %}
-                  <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
-                    >Fill Form
-                  </a>
-                  {% endif %}
-                </div>
-              </div>
-
-              {% if det.S_m and det.S_cm %}
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Mid-Term Report</p>
-                </div>
-                <div class="col-sm-9">
-                  <a href="/repo/{{det.S_id}}" type="submit" class="mb-0"
-                    >Generate Report
-                  </a>
-                </div>
-              </div>
-
-              <hr />
-              {% endif %} {% if det.S_e and det.S_ce %}
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">End-Term Report</p>
-                </div>
-                <div class="col-sm-9">
-                  <a href="/e/repo/{{det.S_id}}" type="submit" class="mb-0"
-                    >Generate Report
-                  </a>
-                </div>
-              </div>
-              {% endif %}
             </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Full Name</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">
+                      {{com.P_fname}} {{com.P_lname}}
+                    </p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{com.P_email}}</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{com.P_pnol}}</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Gender</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p id="supervisor-gender" class="text-muted mb-0">
+                      {{com.P_gender}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5 justify-content-center">
+          <div class="col-lg-6">
+            <h3 class="text-center mb-3">Evaluation</h3>
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">Mid-Term Evaluation</p>
+                  </div>
+                  <div class="col-sm-6">
+                    {% if midTermForm %}
+                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >View Marks
+                    </a>
+                    {% else %}
+                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >Fill Form
+                    </a>
+                    {% endif %}
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">End-Term Evaluation</p>
+                  </div>
+                  <div class="col-sm-6">
+                    {% if endTermForm %}
+                    <a href="/endterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >View Marks
+                    </a>
+                    {% else %}
+                    <a href="/endterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >Fill Form
+                    </a>
+                    {% endif %}
+                  </div>
+                </div>
+
+                <hr />
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">Company Evaluation</p>
+                  </div>
+                  <div class="col-sm-6">
+                    {% if det.CE_C %}
+                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >NOT RECEIVED
+                    </a>
+                    {% elif Compform and det.CE_S %}
+                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >View Marks
+                    </a>
+                    {% else %}
+                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                      >Fill Form
+                    </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
+          <div class="col-lg-6">
+            <h3 class="text-center mb-3">Report</h3>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                {% if det.S_m and det.S_cm %}
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">Mid-Term Report</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="/repo/{{det.S_id}}" type="submit" class="mb-0"
+                      >Generate Report
+                    </a>
+                  </div>
+                </div>
+                {% endif %} {% if det.S_e and det.S_ce %}
+                <hr />
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">End-Term Report</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="/e/repo/{{det.S_id}}" type="submit" class="mb-0"
+                      >Generate Report
+                    </a>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>

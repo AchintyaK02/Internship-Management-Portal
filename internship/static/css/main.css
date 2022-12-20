@@ -1,0 +1,68 @@
+:root {
+  --clr-primary: #472183;
+  --clr-secondary: #4b56d2;
+  --clr-tertiary: #82c3ec;
+  --clr-quaternary: #f1f6f5;
+}
+
+* {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+.login-card {
+  background-color: var(--clr-tertiary);
+  box-shadow: 10px 15px 5px var(--clr-secondary);
+}
+
+.navbar {
+  background-color: var(--clr-secondary);
+}
+
+body {
+  background-color: var(--clr-quaternary);
+}
+
+.bg-clr-primary {
+  background-color: var(--clr-primary);
+}
+
+.bg-clr-secondary {
+  background-color: var(--clr-secondary);
+}
+
+.bg-clr-tertiary {
+  background-color: var(--clr-tertiary);
+}
+
+.bg-clr-quaternary {
+  background-color: var(--clr-quaternary);
+}
+
+.txt-clr-primary {
+  color: var(--clr-primary);
+}
+
+.txt-clr-secondary {
+  color: var(--clr-secondary);
+}
+
+.txt-clr-tertiary {
+  color: var(--clr-tertiary);
+}
+
+.txt-clr-quaternary {
+  color: var(--clr-quaternary);
+}
+
+.dropdown-toggle {
+  box-shadow: inset 0 0 0 0 var(--clr-quaternary);
+  color: var(--clr-quaternary);
+  padding: 0.3rem;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.dropdown-toggle:hover {
+  text-decoration: none;
+  box-shadow: inset 150px 0 0 0 var(--clr-quaternary);
+}

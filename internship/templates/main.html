@@ -21,33 +21,24 @@
       src="https://kit.fontawesome.com/3c13742512.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      * {
-        font-family: "Roboto Slab", sans-serif;
-      }
-
-      .navbar {
-        background-color: #79dae8;
-      }
-
-      body {
-        background-color: #dff6ff;
-      }
-    </style>
-
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {% block CSS %} {% endblock CSS %}
+    <br hidden />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
+    <nav class="navbar navbar-expand-lg txt-clr-quaternary">
+      <div class="container justify-content-between">
         <a class="navbar-brand" href="#">
           <img
-            src="{% static 'images/mitwpu-logo.png' %}"
+            src="{% static 'images/mitwpu-logo2.png' %}"
             alt=""
             width="120"
             height="120"
+            class="rounded"
           />
         </a>
 
@@ -56,7 +47,7 @@
         {% endblock welcome %}
         <div class="nav-item dropdown">
           <a
-            class="nav-link text-dark dropdown-toggle"
+            class="txt-clr-quaternary dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -64,10 +55,11 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i class="fa-solid fa-user mr-2"></i>My Profile
+            <i class="fa-solid fa-user mr-2"></i> My Profile
           </a>
-          {% block dropdownContents %}
+
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% block dropdownContents %}
             <a class="dropdown-item" href="#"
               ><i class="fa-solid fa-user mr-2"></i> View Profile</a
             >
@@ -78,8 +70,8 @@
             <a class="dropdown-item" href="{%url 'login'%}"
               ><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a
             >
+            {% endblock dropdownContents %}
           </div>
-          {% endblock dropdownContents %}
         </div>
       </div>
     </nav>
