@@ -63,7 +63,7 @@ def details(request, id):
     endTermForm = Endterm.objects.filter(SE=id,SEF=1)
     Compform=comeval.objects.filter(CE=id,CEF=1)
     ProgressForm = progresseval.objects.filter(PE_id=id,PEF_id=1)
-    return render(request, 'details.html', {'det': detai , 'midTermForm' : midTermForm, 'endTermForm' : 
+    return render(request, 'details.html', {'det': student , 'midTermForm' : midTermForm, 'endTermForm' : 
     endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
 def cdetails(request, id):
