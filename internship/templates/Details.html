@@ -219,31 +219,52 @@
 
                 <hr />
                 <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Progress Evaluation</p>
+                </div>
+                <div class="col-sm-9">
+                  {% if ProgressForm %}
+                  <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
+                    >View Marks
+                  </a>
+                  {% else %}
+                  <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
+                    >Fill Form
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+
+              <hr />
+
+              <div class="row">
                   <div class="col-sm-6">
                     <p class="mb-0">Company Evaluation</p>
                   </div>
                   <div class="col-sm-6">
-                    {% if det.CE_C %}
-                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                    {% if det.CE_C == False %}
+                    <a type="submit" class="mb-0"
                       >NOT RECEIVED
                     </a>
                     {% elif Compform and det.CE_S %}
-                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                    <a href="/SCompform/{{det.S_id}}" type="submit" class="mb-0"
                       >View Marks
                     </a>
                     {% else %}
-                    <a href="/midterm/{{det.S_id}}" type="submit" class="mb-0"
+                    <a href="/SCompform/{{det.S_id}}" type="submit" class="mb-0"
                       >Fill Form
                     </a>
                     {% endif %}
                   </div>
                 </div>
-              </div>
-            </div>
+              </div>            </div>
           </div>
           {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
           <div class="col-lg-6">
             <h3 class="text-center mb-3">Report</h3>
+
+            </div>
+
 
             <div class="card mb-4">
               <div class="card-body">

@@ -63,6 +63,9 @@ class Student(models.Model):
     S_ce=models.BooleanField(default=False)
     CE_C=models.BooleanField(default=False)
     CE_S=models.BooleanField(default=False)
+    PE_S=models.BooleanField(default=False)
+    PE_C=models.BooleanField(default=False)
+
     
 
     def __str__(self):
@@ -123,16 +126,21 @@ class comeval(models.Model):
     return (self.CE.S_fname + " " + self.CE.S_lname)
 
 
-# class comeval(models.Model):
-#  problem=models.IntegerField()
-#  collect=models.IntegerField()
-#  Team=models.IntegerField()
-#  oralwrit=models.IntegerField()
-#  punctuality=models.IntegerField()
-#  CE_total=models.IntegerField()
-#  CE=models.ForeignKey(Student,on_delete=models.DO_NOTHING,primary_key = True)
-#  CEF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING,primary_key = True)
+class progresseval(models.Model):
+ Taskperfo=models.IntegerField()
+ workcomplete=models.IntegerField()
+ Weekreport=models.IntegerField()
+ repowrit=models.IntegerField()
+ 
+ PE_total=models.IntegerField()
+ PE=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
+ PEF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING)
+ 
 
-#  def __str__(self) -> str:
-#     return (self.CE.S_fname + " " + self.CE.S_lname)
+
+ class Meta:
+        unique_together = (("PE", "PEF"),)
+
+ def __str__(self) -> str:
+    return (self.PE.S_fname + " " + self.PE.S_lname)
 
