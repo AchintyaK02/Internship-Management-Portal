@@ -65,6 +65,7 @@
               <th scope="col">Mid-Term</th>
               <th scope="col">End-Term</th>
               <th scope="col">Company Evaluation</th>
+              <th scope="col">Progress Evaluation</th>
             </tr>
           </thead>
           <tbody class="txt-clr-secondary">
@@ -87,9 +88,14 @@
               {% else %}
               <td id="end-term-form-data">Not Filled</td>
               {% endif %} {% if i.CE_C %}
-              <td id="end-term-form-data">Filled</td>
+              <td id="company-evaluation-form-data">Filled</td>
               {% else %}
-              <td id="end-term-form-data">Not Filled</td>
+              <td id="company-evaluation-form-data">Not Filled</td>
+              {% endif %}
+              {% if i.PE_C %}
+              <td id="progress-evaluation-form-data">Filled</td>
+              {% else %}
+              <td id="progress-evaluation-form-data">Not Filled</td>
               {% endif %}
             </tr>
             {% endfor %}

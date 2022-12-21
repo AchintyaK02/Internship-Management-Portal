@@ -16,7 +16,7 @@
   </head>
   <body>
     {% block welcome %} {% endblock welcome %} {% block dropdownContents %}
-    <a class="dropdown-item" href="/home/com/{{det.SC_id}}"
+    <a class="dropdown-item" href="/home/com/{{det.comper_id}}"
       ><i class="fa-solid fa-house mr-1"></i> Homepage</a
     >
     <a class="dropdown-item" href="#"
@@ -253,7 +253,7 @@
                     <p class="mb-0">Company Evaluation</p>
                   </div>
                   <div class="col-sm-6">
-                    {% if Compform and det.CE_S %}
+                    {% if Compform and det.CE_C %}
                     <a href="/Compform/C/{{det.S_id}}" type="submit" class="mb-0"
                       >View Marks
                     </a>
@@ -267,7 +267,7 @@
               </div> 
             </div>
           </div>
-          {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
+          <!-- {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
           <div class="col-lg-6">
             <h3 class="text-center mb-3">Report</h3>
 
@@ -302,8 +302,8 @@
                 {% endif %}
               </div>
             </div>
-            {% endif %}
-          </div>
+            {% endif %} -->
+          <!-- </div> -->
         </div>
       </div>
     </section>

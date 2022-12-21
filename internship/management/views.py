@@ -75,7 +75,7 @@ def cdetails(request, id):
     Compform=comeval.objects.filter(CE=id)
     ProgressForm = progresseval.objects.filter(PE_id=id,PEF=2)
     return render(request, 'cdetails.html', { 'com' : college_supervisor , 'det': student , 'midTermForm' : midTermForm, 'endTermForm' : 
-    endTermForm,'Compform':Compform,'Progressform':ProgressForm})
+    endTermForm,'Compform':Compform,'ProgressForm':ProgressForm})
 
 def midterm(request, id):
     if request.method == 'POST':
@@ -96,7 +96,10 @@ def midterm(request, id):
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM=id, SF=1)
         endTermForm = Endterm.objects.filter(SE=id, SEF=1)
-        return render(request, 'details.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm})
+        Compform=comeval.objects.filter(CE=id,CEF=1)
+        ProgressForm = progresseval.objects.filter(PE_id=id,PEF=1)
+        return render(request, 'details.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': 
+        endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
     mid = mideterm.objects.filter(SM_id=id, SF=1)
     if mid.exists():
@@ -127,7 +130,11 @@ def cmidterm(request, id):
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM=id, SF=2)
         endTermForm = Endterm.objects.filter(SE=id, SEF=2)
-        return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm})
+        Compform=comeval.objects.filter(CE=id)
+        ProgressForm = progresseval.objects.filter(PE_id=id,PEF=2)
+
+        return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': 
+        endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
     mid = mideterm.objects.filter(SM=id, SF=2)
     if mid.exists():
@@ -163,7 +170,10 @@ def endterm(request, id):
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM=id, SF=1)
         endTermForm = Endterm.objects.filter(SE=id, SEF=1)
-        return render(request, 'details.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm})
+        Compform=comeval.objects.filter(CE=id,CEF=1)
+        ProgressForm = progresseval.objects.filter(PE_id=id,PEF=1)
+        return render(request, 'details.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': 
+         endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
     end = Endterm.objects.filter(SE_id=id, SEF=1)
     if end.exists():
@@ -199,7 +209,10 @@ def cendterm(request, id):
         detai = Student.objects.get(S_id=id)
         midTermForm = mideterm.objects.filter(SM=id, SF=2)
         endTermForm = Endterm.objects.filter(SE=id, SEF=2)
-        return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm})
+        Compform=comeval.objects.filter(CE=id)
+        ProgressForm = progresseval.objects.filter(PE_id=id,PEF=2)
+        return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': 
+         endTermForm,'Compform':Compform,'Progressform':ProgressForm})
 
     end = Endterm.objects.filter(SE=id, SEF=2)
     if end.exists():
@@ -340,7 +353,9 @@ def Compform(request, id):
         midTermForm = mideterm.objects.filter(SM=id, SF=2)
         endTermForm = Endterm.objects.filter(SE=id, SEF=2)
         Compform = comeval.objects.filter(CE_id=id)
-        return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm, 'Compform': Compform})
+        Progress = progresseval.objects.filter(PE_id=id, PEF=2)
+        return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm, 'Compform': 
+        Compform,'ProgressForm': Progress})
 
     Comp = comeval.objects.filter(CE=id)
     if Comp.exists():
@@ -367,7 +382,9 @@ def SCompform(request, id):
         midTermForm = mideterm.objects.filter(SM=id, SF=1)
         endTermForm = Endterm.objects.filter(SE=id, SEF=1)
         Compform = comeval.objects.filter(CE_id=id, CEF=1)
-        return render(request, 'details.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm, 'Compform': Compform})
+        progress=progresseval.objects.filter(PE_id=id,PEF=1)
+        return render(request, 'details.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': endTermForm, 'Compform': 
+        Compform,'Progressform': progress})
 
     Comp = comeval.objects.filter(CE=id, CEF=2)
     Comp1 = comeval.objects.filter(CE=id, CEF=1)
@@ -444,7 +461,7 @@ def Cprogresseval(request, id):
         Compform = comeval.objects.filter(CE_id=id)
         Progress = progresseval.objects.filter(PE_id=id, PEF=2)
         return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm':
-                                                 endTermForm, 'Compform': Compform, 'Progresseval': Progress})
+                                                 endTermForm, 'Compform': Compform, 'ProgressForm': Progress})
 
     Comp = progresseval.objects.filter(PE_id=id, PEF=2)
     if Comp.exists():
