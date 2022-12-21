@@ -1,12 +1,129 @@
+{% extends 'main.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Working
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Progress Evaluation Form</title>
+    {% endblock title %}
+  </head>
+
+  <body>
+    {% block welcome%} {% endblock welcome %} {% block content %}
+    <div class="container">
+      <h1 class="mt-2 mb-2 text-center">Progress Evaluation Form</h1>
+      <h5 class="mb-1 text-muted text-center">
+        Student : {{student.S_fname}} {{student.S_lname}}
+      </h5>
+      <h5 class="mb-5 text-muted text-center">PRN : {{student.S_prn}}</h5>
+
+      <form method="POST" action="/home/{{student.S_id}}">
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="container text-center">
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right"
+                >Tasks performed during Internship</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="10"
+                readonly
+                value="{{form.Taskperfo}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/10</label
+              >
+            </div>
+          </div>
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right"
+                >Learnings from work completed</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark2"
+                min="1"
+                max="10"
+                readonly
+                value="{{form.workcomplete}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/10</label
+              >
+            </div>
+          </div>
+
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right"
+                >Weekly Reporting</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark3"
+                min="1"
+                max="5"
+                readonly
+                value="{{form.Weekreport}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right"
+                >Report Writing</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                readonly
+                value="{{form.repowrit}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/25</label
+              >
+            </div>
+          </div>
+          <hr />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-4 col-form-label text-lg-right">Total</label>
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                readonly
+                value="{{form.PE_total}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/50</label
+              >
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <input
+            class="justify-content-centre my-2 btn btn-outline-dark col-4 col-lg-2"
+            type="submit"
+            value="Go Back"
+          />
+        </div>
+      </form>
+    </div>
+    {% endblock content %}
+  </body>
 </html>

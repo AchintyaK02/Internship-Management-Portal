@@ -467,7 +467,7 @@ def Cprogresseval(request, id):
     if Comp.exists():
         form = progresseval.objects.get(PE_id=id, PEF=2)
         student = Student.objects.get(S_id=id)
-        return render(request, 'progresseval.html', {'form': form, 'student': student})
+        return render(request, 'cprogresseval.html', {'form': form, 'student': student})
 
     student = Student.objects.get(S_id=id)
     return render(request, 'cprogevaldet.html', {'student': student})
