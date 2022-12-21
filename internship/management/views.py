@@ -213,7 +213,7 @@ def cendterm(request, id):
         Compform=comeval.objects.filter(CE=id)
         ProgressForm = progresseval.objects.filter(PE_id=id,PEF=2)
         return render(request, 'cdetails.html', {'det': detai, 'midTermForm': midTermForm, 'endTermForm': 
-         endTermForm,'Compform':Compform,'Progressform':ProgressForm})
+         endTermForm,'Compform':Compform,'ProgressForm':ProgressForm})
 
     end = Endterm.objects.filter(SE=id, SEF=2)
     if end.exists():
@@ -279,55 +279,6 @@ def mrepo(request, id, *args, **kwargs):
     pdf = render_to_pdf('mreport.html', data)
     return HttpResponse(pdf, content_type='application/pdf')
 
-
-# def erepo(request, id, *args, **kwargs):
-#     try:
-#         tmid = Endterm.objects.filter(SE=id)
-#         cmid = CEndterm.objects.filter(C_SE=id)
-#     except:
-#         return HttpResponse("505 NOT FOUND")
-
-#     student = Student.objects.get(S_id=id)
-
-#     for i in tmid:
-#         a = i.background
-#         b = i.scopeandobj
-#         c = i.implemen
-#         d = i.observa
-#         e = i.domain
-#         f = i.present
-#         g = i.communic
-#         s = i.interper
-#         t = i.profess
-#         u = i.qanda
-
-#     for j in cmid:
-#         h = j.C_background
-#         m = j.C_scopeandobj
-#         n = j.C_implemen
-#         o = j.C_observa
-#         p = j.C_domain
-#         q = j.C_present
-#         r = j.C_communic
-#         v = j.C_interper
-#         w = j.C_profess
-#         x = j.C_qanda
-
-#     data = {
-#         'mark1': int(a)+int(h),
-#         'mark2': int(b) + int(m),
-#         'mark3': int(c) + int(n),
-#         'mark4': int(d) + int(o),
-#         'mark5': int(e) + int(p),
-#         'mark6': int(f) + int(q),
-#         'mark7': int(g) + int(r),
-#         'mark8': int(s) + int(v),
-#         'mark9': int(t) + int(w),
-#         'mark10': int(u)+int(x),
-#         'student': student
-#     }
-#     pdf = render_to_pdf('ereport.html', data)
-#     return HttpResponse(pdf, content_type='application/pdf')
 
 
 def Compform(request, id):
