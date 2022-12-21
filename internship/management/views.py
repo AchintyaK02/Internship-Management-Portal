@@ -32,8 +32,18 @@ def home(request):
                 for i in supervi:
                     a = i.Co_id
                 students = Student.objects.filter(SCO_id=a)
+                t=Student.objects.filter(SCO_id=a).count()
+                m=Student.objects.filter(SCO_id=a,S_m=True).count()
+                e=Student.objects.filter(SCO_id=a,S_e=True).count()
+                q=Student.objects.filter(SCO_id=a,CE_S=True).count()
+                p=Student.objects.filter(SCO_id=a,PE_S=True).count()
+                print(e)
+                m=round(m/t*100)
+                e=round(e/t*100)
+                q=round(q/t*100)
+                p=round(p/t*100)
                 teacher = i
-                return render(request, 'home.html', {'stu': students, 'teacher': teacher})
+                return render(request, 'home.html', {'stu': students, 'teacher': teacher,'mid':m,'end':e,'ce':q,'pe':p})
             elif student.exists():
                 for i in student:
                     b = i.S_id
@@ -45,8 +55,17 @@ def home(request):
                     j = i.P_fname+" "+i.P_lname
                 det = Student.objects.filter(comper_id=c)
                 supervisor = j
+                t=Student.objects.filter(comper_id=c).count()
+                m=Student.objects.filter(comper_id=c,S_cm=True).count()
+                e=Student.objects.filter(comper_id=c,S_ce=True).count()
+                q=Student.objects.filter(comper_id=c,CE_C=True).count()
+                p=Student.objects.filter(comper_id=c,PE_C=True).count()
+                m=round(m/t*100)
+                e=round(e/t*100)
+                q=round(q/t*100)
+                p=round(p/t*100)
                 
-                return render(request, "compdash.html", {'stu': det, 'supervisor': supervisor, 'com': comp,'id':c})
+                return render(request, "compdash.html", {'stu': det, 'supervisor': supervisor, 'com': comp,'id':c,'mid':m,'end':e,'ce':q,'pe':p})
         else:
             return redirect('login')
     return render(request, 'login.html')
@@ -228,7 +247,16 @@ def cendterm(request, id):
 def goback(request, id):
     teacher = CollegeSuper.objects.get(Co_id=id)
     students = Student.objects.filter(SCO_id=id)
-    return render(request, 'home.html', {'stu': students, 'teacher': teacher})
+    t=Student.objects.filter(SCO_id=id).count()
+    m=Student.objects.filter(SCO_id=id,S_m=True).count()
+    e=Student.objects.filter(SCO_id=id,S_e=True).count()
+    q=Student.objects.filter(SCO_id=id,CE_S=True).count()
+    p=Student.objects.filter(SCO_id=id,PE_S=True).count()
+    m=round(m/t*100)
+    e=round(e/t*100)
+    q=round(q/t*100)
+    p=round(p/t*100)
+    return render(request, 'home.html', {'stu': students, 'teacher': teacher,'mid':m,'end':e,'ce':q,'pe':p})
 
 
 def cgoback(request, id):
@@ -236,7 +264,16 @@ def cgoback(request, id):
     id=sup.P_id
     supp = sup.P_fname+" "+sup.P_lname
     students = Student.objects.filter(comper_id=id)
-    return render(request, 'compdash.html', {'supervisor': supp, 'stu': students,'id':id})
+    t=Student.objects.filter(comper_id=id).count()
+    m=Student.objects.filter(comper_id=id,S_cm=True).count()
+    e=Student.objects.filter(comper_id=id,S_ce=True).count()
+    q=Student.objects.filter(comper_id=id,CE_C=True).count()
+    p=Student.objects.filter(comper_id=id,PE_C=True).count()
+    m=round(m/t*100)
+    e=round(e/t*100)
+    q=round(q/t*100)
+    p=round(p/t*100)
+    return render(request, 'compdash.html', {'supervisor': supp, 'stu': students,'id':id,'mid':m,'end':e,'ce':q,'pe':p})
 
 
 def render_to_pdf(template_src, context_dict={}):
