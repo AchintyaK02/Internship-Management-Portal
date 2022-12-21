@@ -259,15 +259,16 @@
               </div>
             </div>
           </div>
-          {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
+          {% if det.S_m and det.S_cm and det.S_e and det.S_ce %}
+          <br hidden />
+          {% if det.CE_S and det.CE_C and det.PE_S and det.PE_C %}
           <div class="col-lg-6">
             <h3 class="text-center mb-3">Report</h3>
             <div class="card mb-4">
               <div class="card-body">
-                {% if det.S_m and det.S_cm %}
                 <div class="row">
                   <div class="col-sm-6">
-                    <p class="mb-0">Mid-Term Report</p>
+                    <p class="mb-0">Final Report</p>
                   </div>
                   <div class="col-sm-6">
                     <a href="/repo/{{det.S_id}}" type="submit" class="mb-0"
@@ -275,23 +276,10 @@
                     </a>
                   </div>
                 </div>
-                {% endif %} {% if det.S_e and det.S_ce %}
-                <hr />
-                <div class="row">
-                  <div class="col-sm-6">
-                    <p class="mb-0">End-Term Report</p>
-                  </div>
-                  <div class="col-sm-6">
-                    <a href="/e/repo/{{det.S_id}}" type="submit" class="mb-0"
-                      >Generate Report
-                    </a>
-                  </div>
-                </div>
-                {% endif %}
               </div>
             </div>
-            {% endif %}
           </div>
+          {% endif %} {% endif %}
         </div>
       </div>
     </section>

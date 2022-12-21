@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MidTerm Report - {{student.S_prn}}</title>
+    <title>Final Report - {{student.S_prn}}</title>
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -21,105 +12,174 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .diff-col {
+        background-color: rgb(224, 219, 219);
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 5px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
   </head>
   <body>
     <h1>
       <div class="container">
-        <h1>Mid-Term Report</h1>
-        <h5>
-          Student : {{student.S_fname}} {{student.S_lname}}
-        </h5>
+        <h1>Internship Final Report</h1>
+        <h5>Student : {{student.S_fname}} {{student.S_lname}}</h5>
         <h5>PRN : {{student.S_prn}}</h5>
-        <br>
-        <hr>
-        <br>
-        <form>
-          <div class="container text-center">
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Domain & Technical Knowledge (Key Learning) :
-                </label>
-                <label>{{mark1}}</label>
-                <label class="col-1 text-muted col-form-label text-left"></label>
-                  / 60</label
-                >
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Presentation (PPT/ Case Study) :
-                </label>
-                <label>{{mark2}}</label>
-                <label class="col-1 text-muted col-form-label text-left">
-                  / 60</label
-                >
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Task Completed Till Date :
-                </label>
-                <label>{{mark3}}</label>
-                <label class="col-1 text-muted col-form-label text-left">
-                  / 40</label
-                >
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Communication Skills :
-                </label>
-                <label>{{mark4}}</label>
-                <label class="col-1 text-muted col-form-label text-left">
-                  / 20</label
-                >
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Interpersonal Skills :
-                </label>
-                <label>{{mark5}}</label>
-                <label class="col-1 text-muted col-form-label text-left">
-                  / 20</label
-                >
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Professional Ethics :
-                </label>
-                <label>{{mark6}}</label>
-                <label class="col-1 text-muted col-form-label text-left">
-                  / 20</label
-                >
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <div class="row justify-content-center">
-                <label class="col-lg-4 col-form-label text-lg-right"
-                  >Question/ Answer :
-                </label>
-                <label>{{mark7}}</label>
-                <label class="col-1 text-muted col-form-label text-left">
-                  / 20</label
-                >
-              </div>
-            </div>
-            
-          </div>
+        <br />
+        <hr />
+        <br />
+        <div class="container text-center">
+          <h1>Mid-Term</h1>
+          <table>
+            <tr>
+              <th class="diff-col">
+                <h3>Parameter</h3>
+              </th>
+              <th class="diff-col"><h3>Marks</h3></th>
+            </tr>
+            <tr>
+              <td>Domain & Technical Knowledge (Key Learning)</td>
+              <td>{{mid.domainandtech__sum}} / 60</td>
+            </tr>
+            <tr>
+              <td>Presentation (PPT/ Case Study)</td>
+              <td>{{mid.presentation__sum}} / 60</td>
+            </tr>
+            <tr>
+              <td>Communication Skills</td>
+              <td>{{mid.communication__sum}} / 20</td>
+            </tr>
+            <tr>
+              <td>Question/ Answer</td>
+              <td>{{mid.questionans__sum}} / 10</td>
+            </tr>
+            <tr>
+              <td class="diff-col">Total</td>
+              <td>{{mid.total__sum}} / 160</td>
+            </tr>
+          </table>
           <br />
-        </form>
+          <h1>End-Term</h1>
+          <table>
+            <tr>
+              <th class="diff-col">
+                <h3>Parameter</h3>
+              </th>
+              <th class="diff-col"><h3>Marks</h3></th>
+            </tr>
+            <tr>
+              <td>Implementation / Methodology Used</td>
+              <td>{{end.implemen__sum}} / 40</td>
+            </tr>
+            <tr>
+              <td>Finding / Observation / Analysis</td>
+              <td>{{end.observa__sum}} / 20</td>
+            </tr>
+            <tr>
+              <td>Presentation (PPT/ Case Study)</td>
+              <td>{{end.present__sum}} / 60</td>
+            </tr>
+            <tr>
+              <td>Communication Skills</td>
+              <td>{{end.communic__sum}} / 20</td>
+            </tr>
+            <tr>
+              <td>Question/ Answer</td>
+              <td>{{end.qanda__sum}} / 20</td>
+            </tr>
+            <tr>
+              <td class="diff-col">Total</td>
+              <td>{{end.E_total__sum}} / 160</td>
+            </tr>
+          </table>
+          <br /><br /><br /><br />
+          <h1>Progress Evaluation and Report Writing</h1>
+          <table>
+            <tr>
+              <th class="diff-col">
+                <h3>Parameter</h3>
+              </th>
+              <th class="diff-col"><h3>Marks</h3></th>
+            </tr>
+            <tr>
+              <td>Tasks performed during Internship</td>
+              <td>{{progev.Taskperfo__sum}} / 20</td>
+            </tr>
+            <tr>
+              <td>Learnings from work completed</td>
+              <td>{{progev.workcomplete__sum}} / 20</td>
+            </tr>
+            <tr>
+              <td>Weekly Reporting</td>
+              <td>{{progev.Weekreport__sum}} / 10</td>
+            </tr>
+            <tr>
+              <td>Report Writing</td>
+              <td>{{progev.repowrit__sum}} / 50</td>
+            </tr>
+            <tr>
+              <td class="diff-col">Total</td>
+              <td>{{progev.PE_total__sum}} / 100</td>
+            </tr>
+          </table>
+          <br />
+          <h1>Company Supervisor Evaluation</h1>
+          <table>
+            <tr>
+              <th class="diff-col">
+                <h3>Parameter</h3>
+              </th>
+              <th class="diff-col"><h3>Marks</h3></th>
+            </tr>
+            <tr>
+              <td>
+                Ability to understand a practical situation & formulate a
+                problem
+              </td>
+              <td>{{comp.problem__sum}} / 10</td>
+            </tr>
+            <tr>
+              <td>
+                Ability to collect, collate and analyze appropriate data & apply
+                theoretical concepts to practical situations
+              </td>
+              <td>{{comp.collect__sum}} / 15</td>
+            </tr>
+            <tr>
+              <td>Working as part of a Team</td>
+              <td>{{comp.Team__sum}} / 10</td>
+            </tr>
+            <tr>
+              <td>Oral & Written</td>
+              <td>{{comp.oralwrit__sum}} / 10</td>
+            </tr>
+            <tr>
+              <td>Punctuality</td>
+              <td>{{comp.punctuality__sum}} / 5</td>
+            </tr>
+            <tr>
+              <td class="diff-col">Total</td>
+              <td>{{comp.CE_total__sum}} / 160</td>
+            </tr>
+          </table>
+          <br />
+        </div>
+        <hr />
       </div>
     </h1>
   </body>
-</html>
-
-</body>
 </html>
