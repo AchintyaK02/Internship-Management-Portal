@@ -17,12 +17,12 @@
     {% block welcome %}
     <big>Welcome, {{supervisor}}</big>
     {% endblock welcome %} {% block dropdownContents %}
-    <a class="dropdown-item" href="/cvpro/1"
+    <a class="dropdown-item" href="/cvpro/{{com.P_id}}"
       ><i class="fa-solid fa-user mr-2"></i> View Profile</a
     >
-    <a class="dropdown-item" href="#"
+    <!-- <a class="dropdown-item" href="#"
       ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
-    >
+    > -->
     {% endblock dropdownContents %} {% block content %}
     <div class="container">
       <h3 class="mt-3 text-center">Evaluation Status</h3>
