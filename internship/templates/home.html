@@ -87,17 +87,18 @@
               <td id="end-term-form-data">Filled</td>
               {% else %}
               <td id="end-term-form-data">Not Filled</td>
-              {% endif %} {% if i.CE_S %}
-              <td id="company-evaluation-form-data">Filled</td>
-              {% else %}
+              {% endif %} {% if i.CE_C == False %}
+              <td id="company-evaluation-form-data">Not Received</td>
+              {% elif  i.CE_S == False %}
               <td id="company-evaluation-form-data">Not Filled</td>
+              {% else %}
+              <td id="company-evaluation-form-data"> Filled</td>
               {% endif %} {% if i.PE_S %}
               <td id="progress-evaluation-form-data">Filled</td>
-              {% elif i.PE_C == False %}
-              <td id="progress-evaluation-form-data">Not Recieved</td>
               {% else %}
               <td id="progress-evaluation-form-data">Not Filled</td>
               {% endif %}
+              
             </tr>
             {% endfor %}
           </tbody>

@@ -41,9 +41,9 @@ class compper(models.Model):
   def __str__(self):
     return self.P_fname+" "+self.P_lname      
 
-class faccom(models.Model):
-      f_id=models.AutoField(primary_key=True)
-      f_name=models.CharField(max_length=20)
+# class faccom(models.Model):
+#       f_id=models.AutoField(primary_key=True)
+#       f_name=models.CharField(max_length=20)
 
 class Student(models.Model):
     S_id=models.AutoField(primary_key=True)        
@@ -82,7 +82,7 @@ class mideterm(models.Model):
  questionans=models.IntegerField()
  total=models.IntegerField()
  SM=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
- SF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING)
+ SF=models.IntegerField()
 
  class Meta:
         unique_together = (("SM", "SF"),)
@@ -99,7 +99,7 @@ class Endterm(models.Model):
  qanda=models.IntegerField()
  E_total=models.IntegerField()
  SE=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
- SEF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING)
+ SEF=models.IntegerField()
  class Meta:
         unique_together = (("SE", "SEF"),)
 
@@ -116,7 +116,7 @@ class comeval(models.Model):
  punctuality=models.IntegerField()
  CE_total=models.IntegerField()
  CE=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
- CEF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING)
+ CEF=models.IntegerField()
  
 
 
@@ -135,7 +135,7 @@ class progresseval(models.Model):
  
  PE_total=models.IntegerField()
  PE=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
- PEF=models.ForeignKey(faccom,on_delete=models.DO_NOTHING)
+ PEF=models.IntegerField()
  
 
 
