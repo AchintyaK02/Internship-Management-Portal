@@ -45,7 +45,8 @@ def home(request):
                     j = i.P_fname+" "+i.P_lname
                 det = Student.objects.filter(comper_id=c)
                 supervisor = j
-                return render(request, "compdash.html", {'stu': det, 'supervisor': supervisor, 'com': comp})
+                
+                return render(request, "compdash.html", {'stu': det, 'supervisor': supervisor, 'com': comp,'id':c})
         else:
             return redirect('login')
     return render(request, 'login.html')
@@ -232,9 +233,10 @@ def goback(request, id):
 
 def cgoback(request, id):
     sup = compper.objects.get(P_id=id)
+    id=sup.P_id
     supp = sup.P_fname+" "+sup.P_lname
     students = Student.objects.filter(comper_id=id)
-    return render(request, 'compdash.html', {'supervisor': supp, 'stu': students})
+    return render(request, 'compdash.html', {'supervisor': supp, 'stu': students,'id':id})
 
 
 def render_to_pdf(template_src, context_dict={}):

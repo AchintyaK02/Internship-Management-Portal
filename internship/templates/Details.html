@@ -19,13 +19,13 @@
     <a class="dropdown-item" href="/home/tec/{{det.SCO_id}}"
       ><i class="fa-solid fa-house mr-1"></i> Homepage</a
     >
-    <a class="dropdown-item" href="#"
+    <a class="dropdown-item" href="/svpro/{{det.SCO_id}}"
       ><i class="fa-solid fa-user mr-2"></i> View Profile</a
     >
-    <a class="dropdown-item" href="#"
+    <!-- <a class="dropdown-item" href="#"
       ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
-    >
-    {% endblock dropdownContents %}
+    > -->
+    {% endblock dropdownContents %} 
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{%url 'login'%}"
       ><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a
@@ -220,30 +220,33 @@
 
                 <hr />
                 <div class="row">
-                  <div class="col-sm-6">
-                    <p class="mb-0">Progress Evaluation</p>
-                  </div>
-                  <div class="col-sm-6">
-                    {% if Progressform %}
-                    <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
-                      >View Marks
-                    </a>
-                    {% else %}
-                    <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
-                      >Fill Form
-                    </a>
-                    {% endif %}
-                  </div>
+                <div class="col-sm-6">
+                  <p class="mb-0">Progress Evaluation</p>
                 </div>
+                <div class="col-sm-6">
+                  {% if Progressform %}
+                  <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
+                    >View Marks
+                  </a>
+                  {% else %}
+                  <a href="/Sprogeval/{{det.S_id}}" type="submit" class="mb-0"
+                    >Fill Form
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
 
-                <hr />
-                <div class="row">
+              <hr />
+
+              <div class="row">
                   <div class="col-sm-6">
                     <p class="mb-0">Company Evaluation</p>
                   </div>
                   <div class="col-sm-6">
                     {% if det.CE_C == False %}
-                    <p class="mb-0">Not Recieved</p>
+                    <p class="mb-0"
+                      >Not Recieved
+                    </p>
                     {% elif Compform and det.CE_S %}
                     <a href="/SCompform/{{det.S_id}}" type="submit" class="mb-0"
                       >View Marks
@@ -255,12 +258,15 @@
                     {% endif %}
                   </div>
                 </div>
-              </div>
-            </div>
+              </div>            </div>
           </div>
           {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
           <div class="col-lg-6">
             <h3 class="text-center mb-3">Report</h3>
+
+            </div>
+
+
             <div class="card mb-4">
               <div class="card-body">
                 {% if det.S_m and det.S_cm %}
