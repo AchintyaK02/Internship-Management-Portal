@@ -388,13 +388,15 @@ def SCompform(request, id):
 
     Comp = comeval.objects.filter(CE=id, CEF=2)
     Comp1 = comeval.objects.filter(CE=id, CEF=1)
+
     if Comp.exists():
         form = comeval.objects.get(CE_id=id)
         student = Student.objects.get(S_id=id)
-        return render(request, 'Scomformdet.html', {'form': form, 'student': student})
-
+        return render(request, 'scomformdet.html', {'form': form, 'student': student})
+    
+    form = comeval.objects.get(CE_id=id) 
     student = Student.objects.get(S_id=id)
-    return render(request, 'ccomform.html', {'student': student, 'Compform': Comp1})
+    return render(request, 'scomform.html', {'student': student, 'form': form})
 
 
 def Sprogresseval(request, id):
@@ -467,7 +469,7 @@ def Cprogresseval(request, id):
     if Comp.exists():
         form = progresseval.objects.get(PE_id=id, PEF=2)
         student = Student.objects.get(S_id=id)
-        return render(request, 'progresseval.html', {'form': form, 'student': student})
+        return render(request, 'cprogresseval.html', {'form': form, 'student': student})
 
     student = Student.objects.get(S_id=id)
     return render(request, 'cprogevaldet.html', {'student': student})

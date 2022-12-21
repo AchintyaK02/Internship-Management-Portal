@@ -1,2 +1,4 @@
 internship/internship/settings.py
 internship/management/migrations
+internship/internship/__pycache__
+internship/management/__pycache__
