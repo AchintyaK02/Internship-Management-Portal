@@ -5,6 +5,7 @@ from django.db import models
 class Login(models.Model):
     Loginid=models.CharField(max_length=50)
     Password=models.CharField(max_length=50)
+    is_admin=models.BooleanField(default=False)
 
     def __str__(self) -> str:
        return self.Loginid
@@ -136,11 +137,54 @@ class progresseval(models.Model):
  PE_total=models.IntegerField()
  PE=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
  PEF=models.IntegerField()
- 
-
-
  class Meta:
-        unique_together = (("PE", "PEF"),)
+    unique_together = (("PE", "PEF"),)
+       
+
+class StudentFeedbackForm(models.Model):
+ Studentfeedback=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
+ Technical_knowledge=models.IntegerField()
+ Understandingof_concepts=models.IntegerField()
+ Identify_methods=models.IntegerField()
+ Realistic_preview=models.IntegerField()
+ Ample_opportunity=models.IntegerField()
+ Adequate_training=models.IntegerField()
+ Regular_meetings=models.IntegerField()
+ Responsibility_level=models.IntegerField()
+ Supervisor_available=models.IntegerField()
+ Challenging_work=models.IntegerField()
+ Same_level=models.IntegerField() 
+ Good_relationship=models.IntegerField() 
+ Better_prepared=models.IntegerField() 
+ Internship_paid=models.BooleanField(default=False)
+ Compensation=models.CharField(max_length=50)
+ Permanent_position=models.BooleanField(default=False)
+ Recommend_internship=models.CharField(max_length=50)
+ Suggestionto_student=models.CharField(max_length=200)
+ Suggestionto_school=models.CharField(max_length=200)
+ Summary=models.CharField(max_length=500)
+
+class CompanySupervisorFeedbackForm(models.Model):
+ student_Supervisorfeedback=models.ForeignKey(Student,on_delete=models.DO_NOTHING)
+ CompanySupervisorfeedback=models.ForeignKey(compper,on_delete=models.DO_NOTHING)
+ Understanding_fundamentals=models.CharField(max_length=50)
+ Problem_designing=models.CharField(max_length=50)
+ Technical_Knowledge=models.CharField(max_length=50)
+ Managerial_skill=models.CharField(max_length=50)
+ Tool_selection=models.CharField(max_length=50)
+ Data_handling=models.CharField(max_length=50)
+ Work_ethics=models.CharField(max_length=50)
+ Communication_practices=models.CharField(max_length=50)
+ Performance=models.CharField(max_length=50)
+ Innovative_approach=models.CharField(max_length=50)
+ Learning_capability=models.CharField(max_length=50)
+ Apply_Reasoning=models.CharField(max_length=50)
+ Understand_impact=models.CharField(max_length=50)
+ Overall_experience=models.CharField(max_length=50)
+ Domain_enhancement=models.CharField(max_length=50)
+ Improve_Process=models.CharField(max_length=50)
+
+ 
 
  def __str__(self) -> str:
     return (self.PE.S_fname + " " + self.PE.S_lname)
