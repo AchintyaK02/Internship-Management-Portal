@@ -15,9 +15,9 @@
   </head>
   <body>
     {% block welcome %}
-    <big>Welcome, {{supervisor}}</big>
+    <big>Welcome, {{supervisor.P_fname}} {{supervisor.P_lname}}</big>
     {% endblock welcome %} {% block dropdownContents %}
-    <a class="dropdown-item" href="/cvpro/{{com.P_id}}"
+    <a class="dropdown-item" href="/cvpro/{{supervisor.P_id}}"
       ><i class="fa-solid fa-user mr-2"></i> View Profile</a
     >
     <!-- <a class="dropdown-item" href="#"
@@ -30,10 +30,12 @@
         <div class="col mx-3 my-4 card txt-clr-quaternary bg-clr-secondary">
           <div class="mt-2 card-header">Mid-Term Evaluation</div>
           <div class="card-body">
-            <div class="pie animate" style="--p: {{mid}}; --c: white">{{mid}}%</div>
+            <div class="pie animate" style="--p: {{mid}}; --c: white">
+              {{mid}}%
+            </div>
           </div>
         </div>
-        <div class="col-lg-4 mx-3 my-4 card">
+        <div class="col-lg-3 mx-3 my-4 card">
           <div class="mt-2 card-header txt-clr-secondary">
             Company Evaluation
           </div>
@@ -49,7 +51,22 @@
         <div class="col mx-3 my-4 card txt-clr-quaternary bg-clr-secondary">
           <div class="mt-2 card-header">End-Term Evaluation</div>
           <div class="card-body">
-            <div class="pie animate" style="--p: {{end}}; --c: white">{{end}}</div>
+            <div class="pie animate" style="--p: {{end}}; --c: white">
+              {{end}}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mx-3 my-4 card">
+          <div class="mt-2 card-header txt-clr-secondary">
+            Progress Evaluation
+          </div>
+          <div class="card-body">
+            <div
+              class="pie animate txt-clr-secondary"
+              style="--p: {{pe}}; --c: var(--clr-secondary)"
+            >
+              {{pe}}%
+            </div>
           </div>
         </div>
       </div>
@@ -74,7 +91,7 @@
               <th scope="row">{{i.S_id}}</th>
               <td>
                 <a href="/home/C/{{i.S_id}}" class="text-decoration-none"
-                  >{{i.S_fname}} {{i.S_mname}} {{i.S_lname}}
+                  >{{i.S_fname}} {{i.S_lname}}
                 </a>
               </td>
               <td>{{i.S_prn}}</td>
@@ -91,8 +108,7 @@
               <td id="company-evaluation-form-data">Filled</td>
               {% else %}
               <td id="company-evaluation-form-data">Not Filled</td>
-              {% endif %}
-              {% if i.PE_C %}
+              {% endif %} {% if i.PE_C %}
               <td id="progress-evaluation-form-data">Filled</td>
               {% else %}
               <td id="progress-evaluation-form-data">Not Filled</td>

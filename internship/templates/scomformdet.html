@@ -12,7 +12,14 @@
   </head>
 
   <body>
-    {% block welcome%} {% endblock welcome %} {% block content %}
+    {% block welcome%} {% endblock welcome %} {% block dropdownContents %}
+    <a class="dropdown-item" href="/svpro/{{student.SCO_id}}"
+      ><i class="fa-solid fa-user mr-2"></i> View Profile</a
+    >
+    <!-- <a class="dropdown-item" href="#"
+      ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
+    > -->
+    {% endblock dropdownContents %}{% block content %}
     <div class="container">
       <h1 class="mt-2 mb-2 text-center">Company Supervisor Evaluation Form</h1>
       <h5 class="mb-1 text-muted text-center">

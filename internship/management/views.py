@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-# from django.contrib.auth import login, logout, authenticate
 from .models import *
 from io import BytesIO
 from django.template.loader import get_template
@@ -52,9 +51,8 @@ def home(request):
             elif comp.exists():
                 for i in comp:
                     c = i.P_id
-                    j = i.P_fname+" "+i.P_lname
                 det = Student.objects.filter(comper_id=c)
-                supervisor = j
+                supervisor = i
                 t=Student.objects.filter(comper_id=c).count()
                 m=Student.objects.filter(comper_id=c,S_cm=True).count()
                 e=Student.objects.filter(comper_id=c,S_ce=True).count()
@@ -273,7 +271,7 @@ def cgoback(request, id):
     e=round(e/t*100)
     q=round(q/t*100)
     p=round(p/t*100)
-    return render(request, 'compdash.html', {'supervisor': supp, 'stu': students,'id':id,'mid':m,'end':e,'ce':q,'pe':p})
+    return render(request, 'compdash.html', {'supervisor_name' : supp, 'supervisor': sup, 'stu': students,'id':id,'mid':m,'end':e,'ce':q,'pe':p})
 
 
 def render_to_pdf(template_src, context_dict={}):

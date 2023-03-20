@@ -25,7 +25,7 @@
     <!-- <a class="dropdown-item" href="#"
       ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
     > -->
-    {% endblock dropdownContents %} 
+    {% endblock dropdownContents %}
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{%url 'login'%}"
       ><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a
@@ -139,9 +139,7 @@
                     <p class="mb-0">Full Name</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">
-                      {{com.CO_name}}
-                    </p>
+                    <p class="text-muted mb-0">{{com.CO_name}}</p>
                   </div>
                 </div>
                 <hr />
@@ -168,9 +166,7 @@
                     <p class="mb-0">Address</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">
-                      {{com.CO_addrss}}
-                    </p>
+                    <p class="text-muted mb-0">{{com.CO_addrss}}</p>
                   </div>
                 </div>
                 <hr />
@@ -201,7 +197,7 @@
                   <div class="col-sm-6">
                     {% if midTermForm %}
                     <a href="/midterm/C/{{det.S_id}}" type="submit" class="mb-0"
-                      >View Marks 
+                      >View Marks
                     </a>
                     {% else %}
                     <a href="/midterm/C/{{det.S_id}}" type="submit" class="mb-0"
@@ -231,40 +227,52 @@
 
                 <hr />
                 <div class="row">
-                <div class="col-sm-6">
-                  <p class="mb-0">Progress Evaluation</p>
-                </div>
-                <div class="col-sm-6">
-                  {% if ProgressForm %}
-                  <a href="/Cprogeval/C/{{det.S_id}}" type="submit" class="mb-0"
-                    >View Marks
-                  </a>
-                  {% else %}
-                  <a href="/Cprogeval/C/{{det.S_id}}" type="submit" class="mb-0"
-                    >Fill Form
-                  </a>
-                  {% endif %}
-                </div>
-              </div>
-
-              <hr />
-              <div class="row">
                   <div class="col-sm-6">
-                    <p class="mb-0">Company Evaluation</p>
+                    <p class="mb-0">Progress Evaluation</p>
                   </div>
                   <div class="col-sm-6">
-                    {% if Compform and det.CE_C %}
-                    <a href="/Compform/C/{{det.S_id}}" type="submit" class="mb-0"
+                    {% if ProgressForm %}
+                    <a
+                      href="/Cprogeval/C/{{det.S_id}}"
+                      type="submit"
+                      class="mb-0"
                       >View Marks
                     </a>
                     {% else %}
-                    <a href="/Compform/C/{{det.S_id}}" type="submit" class="mb-0"
+                    <a
+                      href="/Cprogeval/C/{{det.S_id}}"
+                      type="submit"
+                      class="mb-0"
                       >Fill Form
                     </a>
                     {% endif %}
                   </div>
                 </div>
-              </div> 
+
+                <hr />
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">Company Evaluation</p>
+                  </div>
+                  <div class="col-sm-6">
+                    {% if Compform and det.CE_C %}
+                    <a
+                      href="/Compform/C/{{det.S_id}}"
+                      type="submit"
+                      class="mb-0"
+                      >View Marks
+                    </a>
+                    {% else %}
+                    <a
+                      href="/Compform/C/{{det.S_id}}"
+                      type="submit"
+                      class="mb-0"
+                      >Fill Form
+                    </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- {% if det.S_m and det.S_cm or det.S_e and det.S_ce %}
