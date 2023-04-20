@@ -475,6 +475,8 @@ def cvpro(request,id):
     company_name = company.objects.get(C_id = field_value)
     return render(request,'companysuper.html',{'compper':comper , 'company' : company_name})
     
-def fillInternFeedback(request):
-    return render(request, 'internFeedbackFormDet.html')
+def fillInternFeedback(request,id):
+    if request.method == 'POST':
+        pass
+    return render(request, 'internFeedbackFormDet.html' , {'id' : id})
 
