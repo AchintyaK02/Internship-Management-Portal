@@ -22,5 +22,6 @@ urlpatterns = [
    # path('sepro/<str:id>',views.Sepro,name='Sedit'),
    path('cvpro/<str:id>',views.cvpro,name='cview'),
    # path('cepro/<str:id>',views.cepro,name='cedit'),
+  
 
 ]

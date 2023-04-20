@@ -476,3 +476,5 @@ def cvpro(request,id):
     return render(request,'companysuper.html',{'compper':comper , 'company' : company_name})
     
 
+
+
