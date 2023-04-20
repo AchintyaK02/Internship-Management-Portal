@@ -163,8 +163,8 @@ class StudentFeedbackForm(models.Model):
  Compensation=models.CharField(max_length=50)
  Permanent_position=models.BooleanField(default=False)
  Recommend_internship=models.CharField(max_length=50)
- Suggestionto_student=models.CharField(max_length=200)
- Suggestionto_school=models.CharField(max_length=200)
+ Suggestionto_student=models.CharField(max_length=1000)
+ Suggestionto_school=models.CharField(max_length=1000)
  Summary=models.CharField(max_length=500)
 
 class CompanySupervisorFeedbackForm(models.Model):
