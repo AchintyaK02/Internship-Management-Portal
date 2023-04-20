@@ -1,0 +1,476 @@
+{% extends 'main.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Student Performance Feedback</title>
+    {% endblock title %}
+  </head>
+
+  <body>
+    {% block welcome%} {% endblock welcome %} {% block dropdownContents %}
+    <a class="dropdown-item" href="/companyfeedback/{{id}}"
+      ><i class="fa-solid fa-user mr-2"></i> View Profile</a
+    >
+    <!-- <a class="dropdown-item" href="#"
+      ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
+    > -->
+    {% endblock dropdownContents %} {% block content %}
+    <div class="container">
+      <h1 class="mt-2 mb-2 text-center">Student Performance Feedback</h1>
+      <br />
+      <h5 class="mb-3 text-muted text-center">
+        Rate the students on the basis of their performance
+      </h5>
+      <h5 class="mb-3 text-muted text-center">
+        5 = Excellent | 4 = Very Good | 3 = Good
+      </h5>
+      <h5 class="mb-5 text-muted text-center">2 = Average | 1 = Poor</h5>
+
+      <form method="POST" action="/midterm/{{student.S_id}}">
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="container text-center">
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Understanding about engineering fundamentals.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Design and analysis of the problem statement.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Application of core technical knowledge for the given problem
+                statement.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Application of managerial skill as per necessity in work
+                completion.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Selection and utilization of appropriate tool for work
+                completion
+              </label>
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Data handling and interpretation during work.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Work ethics followed.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Communication practices followed – oral/ written / e-mail
+                etiquettes etc.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Individual and performance in the Team.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Innovative approach shown during work completion.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Self-learning capability as per work requirement.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Apply reasoning e to assess societal, health, safety, legal and
+                cultural issuesand the consequent responsibilities relevant to
+                the professional engineering practice.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Understand the impact of the professional engineering solutions
+                in Societal and environmental contexts.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Overall experience in work completion.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Technical domain knowledge enhancement</label
+              >
+              <div class="col-6 col-lg-4">
+                <div class="text-lg-left">
+                  <input
+                    type="checkbox"
+                    id="technical1"
+                    name="technical1"
+                    value="Programming"
+                  />
+                  <label for="technical1"> Programming</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical2"
+                    name="technical2"
+                    value="Full Stack Development"
+                  />
+                  <label for="technical2"> Full Stack Development</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical3"
+                    name="technical3"
+                    value="AI/ML/Deep Learning"
+                  />
+                  <label for="technical3"> AI/ML/Deep Learning</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical4"
+                    name="technical4"
+                    value="DBMS"
+                  />
+                  <label for="technical4"> DBMS</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical5"
+                    name="technical5"
+                    value="Big Data Technologies"
+                  />
+                  <label for="technical5"> Big Data Technologies</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical6"
+                    name="technical6"
+                    value="Web Development"
+                  />
+                  <label for="technical6"> Web Development</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical7"
+                    name="technical7"
+                    value="Android"
+                  />
+                  <label for="technical7"> Android</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical8"
+                    name="technical8"
+                    value="WSN – IoT"
+                  />
+                  <label for="technical8"> WSN – IoT</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical9"
+                    name="technical9"
+                    value="Security"
+                  />
+                  <label for="technical9"> Security</label><br />
+                  <input
+                    type="checkbox"
+                    id="technical10"
+                    name="technical10"
+                    value="Others"
+                  />
+                  <label for="technical10"> Others</label><br />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-6 col-form-label text-lg-right"
+                >Any specific requirement to improve the overall internship
+                process.</label
+              >
+              <div class="col-6 col-lg-4">
+                <div class="text-lg-left">
+                  <input
+                    type="checkbox"
+                    id="specific1"
+                    name="specific1"
+                    value="Internship duration"
+                  />
+                  <label for="specific1"> Internship duration</label><br />
+                  <input
+                    type="checkbox"
+                    id="specific2"
+                    name="specific2"
+                    value="Internship assessment"
+                  />
+                  <label for="specific2"> Internship assessment</label><br />
+                  <input
+                    type="checkbox"
+                    id="specific3"
+                    name="specific3"
+                    value="Interaction avenue prior to internship"
+                  />
+                  <label for="specific3">
+                    Interaction avenue prior to internship</label
+                  ><br />
+                  <input
+                    type="checkbox"
+                    id="specific4"
+                    name="specifi4"
+                    value="Opportunities for offering BTech Project"
+                  />
+                  <label for="specific4">
+                    Opportunities for offering BTech Project</label
+                  ><br />
+                  <input
+                    type="checkbox"
+                    id="specific5"
+                    name="specific5"
+                    value="Opportunities for offering pre-placement"
+                  />
+                  <label for="specific5">
+                    Opportunities for offering pre-placement</label
+                  ><br />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <a
+            class="justify-content-centre my-2 mr-2 btn bg-clr-secondary txt-clr-quaternary col-4 col-lg-2"
+            href="/home/{{student.S_id}}"
+            >Cancel</a
+          >
+          <input
+            class="justify-content-centre my-2 btn btn-outline-dark col-4 col-lg-2"
+            type="submit"
+            value="Lock Answers"
+          />
+        </div>
+      </form>
+    </div>
+    {% endblock content %}
+  </body>
+</html>

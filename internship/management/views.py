@@ -480,3 +480,12 @@ def fillInternFeedback(request,id):
         pass
     return render(request, 'internFeedbackFormDet.html' , {'id' : id})
 
+
+def fillCompanyFeedback(request,id):
+    if request.method == 'POST':
+        pass
+    return render(request, 'companyFeedbackFormDet.html' , {'id' : id})
+
+def temp(request):
+    return render(request , 'temp.html')
+

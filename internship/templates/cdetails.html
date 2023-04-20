@@ -272,6 +272,29 @@
                     {% endif %}
                   </div>
                 </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="mb-0">Student Evaluation</p>
+                  </div>
+                  <div class="col-sm-6">
+                    {% if Compform and det.CE_C %}
+                    <a
+                      href="/Compform/C/{{det.S_id}}"
+                      type="submit"
+                      class="mb-0"
+                      >View Marks
+                    </a>
+                    {% else %}
+                    <a
+                      href="/companyfeedback/{{det.S_id}}"
+                      type="submit"
+                      class="mb-0"
+                      >Fill Form
+                    </a>
+                    {% endif %}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
