@@ -13,9 +13,7 @@
 
   <body>
     {% block welcome%} {% endblock welcome %} {% block dropdownContents %}
-    <a class="dropdown-item" href="/internfeedback/{{student.SCO_id}}"
-      ><i class="fa-solid fa-user mr-2"></i> View Profile</a
-    >
+    
     <!-- <a class="dropdown-item" href="#"
       ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
     > -->
@@ -34,7 +32,7 @@
         2 = Disagree | 1 = Strongly Disagree | 0 = Not applicable
       </h5>
 
-      <form method="POST" action="/midterm/{{student.S_id}}">
+      <form method="POST" action="/internfeedback/{{id}}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="container text-center">
@@ -69,7 +67,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark2"
                 min="0"
                 max="5"
                 required
@@ -90,7 +88,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark3"
                 min="0"
                 max="5"
                 required
@@ -111,7 +109,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark4"
                 min="0"
                 max="5"
                 required
@@ -133,7 +131,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark5"
                 min="0"
                 max="5"
                 required
@@ -154,7 +152,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark6"
                 min="0"
                 max="5"
                 required
@@ -175,7 +173,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark7"
                 min="0"
                 max="5"
                 required
@@ -197,7 +195,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark8"
                 min="0"
                 max="5"
                 required
@@ -218,7 +216,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark9"
                 min="0"
                 max="5"
                 required
@@ -238,7 +236,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark10"
                 min="0"
                 max="5"
                 required
@@ -258,7 +256,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark11"
                 min="0"
                 max="5"
                 required
@@ -278,7 +276,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark12"
                 min="0"
                 max="5"
                 required
@@ -299,7 +297,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark13"
                 min="0"
                 max="5"
                 required
@@ -319,7 +317,7 @@
               <input
                 type="text"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark14"
                 required
                 value="{{form.problem}}"
               />
@@ -337,7 +335,7 @@
               >
               <textarea
                 class="col-6 col-lg-3 form-control"
-                name="mark1"
+                name="mark15"
                 required
                 maxlength="50"
                 value="{{form.problem}}"
@@ -355,7 +353,7 @@
               <input
                 type="text"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark16"
                 required
                 value="{{form.problem}}"
               />
@@ -375,7 +373,7 @@
               <input
                 type="number"
                 class="col-3 col-lg-3 form-control"
-                name="mark1"
+                name="mark17"
                 min="1"
                 max="4"
                 required
@@ -395,7 +393,7 @@
               >
               <textarea
                 class="col-6 col-lg-3 form-control"
-                name="mark1"
+                name="mark18"
                 required
                 value="{{form.problem}}"
                 maxlength="1000"
@@ -412,7 +410,7 @@
               >
               <textarea
                 class="col-6 col-lg-3 form-control"
-                name="mark1"
+                name="mark19"
                 required
                 maxlength="1000"
                 value="{{form.problem}}"

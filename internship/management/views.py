@@ -477,7 +477,29 @@ def cvpro(request,id):
     
 def fillInternFeedback(request,id):
     if request.method == 'POST':
-        pass
+       print(request.POST.get('mark1'))
+       print(request.POST.get('mark2'))
+       print(request.POST.get('mark3'))
+       print(request.POST.get('mark4'))
+       print(request.POST.get('mark5'))
+       print(request.POST.get('mark6'))
+       print(request.POST.get('mark7'))
+       print(request.POST.get('mark8'))
+       print(request.POST.get('mark9'))
+       print(request.POST.get('mark10'))
+       print(request.POST.get('mark11'))
+       print(request.POST.get('mark12'))
+       print(request.POST.get('mark13'))
+       print(request.POST.get('mark14'))
+       print(request.POST.get('mark15'))
+       print(request.POST.get('mark16'))
+       print(request.POST.get('mark17'))
+       print(request.POST.get('mark18'))
+       print(request.POST.get('mark19'))
+
+       stu = Student.objects.get(S_id=id)
+       return render(request, "studet.html", {'stu': stu})
+        
     return render(request, 'internFeedbackFormDet.html' , {'id' : id})
 
 
