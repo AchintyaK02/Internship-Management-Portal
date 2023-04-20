@@ -1,0 +1,441 @@
+{% extends 'main.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Internship FeedBack Form</title>
+    {% endblock title %}
+  </head>
+
+  <body>
+    {% block welcome%} {% endblock welcome %} {% block dropdownContents %}
+    <a class="dropdown-item" href="/internfeedback/{{student.SCO_id}}"
+      ><i class="fa-solid fa-user mr-2"></i> View Profile</a
+    >
+    <!-- <a class="dropdown-item" href="#"
+      ><i class="fa-regular fa-user mr-2"></i> Edit Profile</a
+    > -->
+    {% endblock dropdownContents %} {% block content %}
+    <div class="container">
+      <h1 class="mt-2 mb-2 text-center">Internship FeedBack Form</h1>
+      <br />
+      <h5 class="mb-3 text-muted text-center">
+        Please answer these questions honestly and thoughtfully. Rate the
+        statements below using the following key:
+      </h5>
+      <h5 class="mb-3 text-muted text-center">
+        5 = Strongly Agree | 4 = Agree | 3 = Neutral
+      </h5>
+      <h5 class="mb-5 text-muted text-center">
+        2 = Disagree | 1 = Strongly Disagree | 0 = Not applicable
+      </h5>
+
+      <form method="POST" action="/midterm/{{student.S_id}}">
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="container text-center">
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I was able to apply technical / managerial knowledge to solve
+                the real lifeproblem or situation</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >As a result of my internship, I have a better understanding of
+                concepts, theories,collection and organization of data, and
+                skills in my course of study.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I have a capacity to identify the appropriate methods or tools
+                to deal with anyproblem situation</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >This experience gave me a realistic preview of the career
+                field.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >There were ample opportunities for learning. As a result, I
+                developedProfessional ethics, Communication skills and
+                Interpersonal skills.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I was given adequate training or explanation of
+                projects.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I had regular meetings with my supervisor and received
+                constructive, on-goingfeedback.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >was provided levels of responsibility consistent with my
+                ability and was givenadditional responsibility as my experience
+                increased.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >My supervisor was available and accessible when I had
+                questions/concerns</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >The work I performed was challenging and stimulating.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I was treated on the same level as other employees.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I had a good working relationship with my co-workers.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >I feel that I am better prepared to enter the world of work
+                after this experience.</label
+              >
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="0"
+                max="5"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/5</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >Was the internship paid?</label
+              >
+              <input
+                type="text"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >Yes/No</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >Did you receive any other form of compensation? (Stipend,
+                Meals, Other)</label
+              >
+              <textarea
+                class="col-6 col-lg-3 form-control"
+                name="mark1"
+                required
+                maxlength="50"
+                value="{{form.problem}}"
+              ></textarea>
+              <label class="col-1"></label>
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >Were you offered a full-time or permanent position with the
+                organizationproviding the internship?
+              </label>
+              <input
+                type="text"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >Yes/No</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >On a scale of 1 to 4 how would you recommend this internship to
+                other students?</label
+              >
+
+              <input
+                type="number"
+                class="col-3 col-lg-3 form-control"
+                name="mark1"
+                min="1"
+                max="4"
+                required
+                value="{{form.problem}}"
+              />
+              <label class="col-1 text-muted col-form-label text-left"
+                >/4</label
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >What suggestions would you like to give to students who may
+                intern at this organization in the future?</label
+              >
+              <textarea
+                class="col-6 col-lg-3 form-control"
+                name="mark1"
+                required
+                value="{{form.problem}}"
+                maxlength="1000"
+              ></textarea>
+              <label class="col-1"></label>
+            </div>
+          </div>
+          <br />
+          <div class="form-outline mb-4">
+            <div class="row justify-content-center">
+              <label class="col-lg-8 col-form-label text-lg-right"
+                >Give any suggestions for improvement in Internship process of
+                our school of CET</label
+              >
+              <textarea
+                class="col-6 col-lg-3 form-control"
+                name="mark1"
+                required
+                maxlength="1000"
+                value="{{form.problem}}"
+              ></textarea>
+              <label class="col-1"></label>
+            </div>
+          </div>
+          <br />
+
+          <!-- Submit button -->
+          <a
+            class="justify-content-centre my-2 mr-2 btn bg-clr-secondary txt-clr-quaternary col-4 col-lg-2"
+            href="/home/{{student.S_id}}"
+            >Cancel</a
+          >
+          <input
+            class="justify-content-centre my-2 btn btn-outline-dark col-4 col-lg-2"
+            type="submit"
+            value="Lock Answers"
+          />
+        </div>
+      </form>
+    </div>
+    {% endblock content %}
+  </body>
+</html>
