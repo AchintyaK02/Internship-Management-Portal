@@ -139,6 +139,7 @@ class progresseval(models.Model):
  PEF=models.IntegerField()
  class Meta:
     unique_together = (("PE", "PEF"),)
+
  def __str__(self) -> str:
     return (self.PE.S_fname + " " + self.PE.S_lname)
        
@@ -188,5 +189,6 @@ class CompanySupervisorFeedbackForm(models.Model):
 
  
 
- 
+ def __str__(self) -> str:
+    return (self.PE.S_fname + " " + self.PE.S_lname)
 
