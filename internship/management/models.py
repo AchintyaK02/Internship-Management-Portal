@@ -88,8 +88,8 @@ class mideterm(models.Model):
  class Meta:
         unique_together = (("SM", "SF"),)
  
-def __str__(self) -> str:
-    return (self.SM.S_fname + " " + self.SM.S_lname)
+ def __str__(self) -> str:
+     return (self.SM.S_fname + " " + self.SM.S_lname)
 
 
 class Endterm(models.Model):
