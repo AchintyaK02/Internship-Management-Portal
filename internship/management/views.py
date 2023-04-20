@@ -508,6 +508,5 @@ def fillCompanyFeedback(request,id):
         pass
     return render(request, 'companyFeedbackFormDet.html' , {'id' : id})
 
-def temp(request):
-    return render(request , 'temp.html')
+
 
